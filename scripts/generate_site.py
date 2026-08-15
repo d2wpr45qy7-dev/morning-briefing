@@ -169,6 +169,20 @@ def build_html(dates, dark_dates):
     letter-spacing: 2px;
     color: var(--sub);
   }}
+  .nav-row {{
+    max-width: 760px;
+    margin: 8px auto 0 auto;
+    text-align: center;
+    font-size: 12px;
+  }}
+  .nav-row a {{
+    color: var(--link);
+    text-decoration: none;
+    margin: 0 8px;
+  }}
+  .nav-row a:hover {{
+    text-decoration: underline;
+  }}
   .content {{
     max-width: 760px;
     margin: 20px auto;
@@ -273,6 +287,7 @@ def build_html(dates, dark_dates):
     <h1>The Morning Briefing</h1>
     <div class='sub'>Politics &middot; Law &middot; Geopolitics &middot; Markets</div>
   </div>
+  <div class='nav-row'><a href='essays.html'>Weekly Essays &rarr;</a></div>
   <div class='content'>
 {latest_block}
     <div class='archive'>
