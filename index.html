@@ -110,8 +110,17 @@
     font-weight: 600;
     padding: 14px 20px;
     border-radius: 6px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto;
     max-width: 420px;
+  }
+  .edition-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    margin: 8px 0 20px 0;
+  }
+  .edition-note a {
+    color: var(--link);
   }
   .viewer-wrap {
     border: 1px solid var(--viewer-border);
@@ -150,6 +159,10 @@
   .archive a:hover {
     text-decoration: underline;
   }
+  .muted-link {
+    color: var(--muted) !important;
+    font-size: 12px;
+  }
   .muted {
     color: var(--muted);
   }
@@ -176,14 +189,15 @@
   <div class='masthead'>
     <div class='sub'>Prepared for Marcus Johnson &middot; San Antonio, Texas</div>
     <h1>The Morning Briefing</h1>
-    <div class='sub'>Politics &middot; Law &middot; Middle East &middot; Rome &middot; The World</div>
+    <div class='sub'>Politics &middot; Law &middot; Geopolitics &middot; Markets</div>
   </div>
   <div class='content'>
 
     <div class='today-tag'>TODAY &mdash; Saturday, August 15, 2026</div>
-    <a class='pdf-button' href='pdfs/Morning-Briefing-2026-08-15.pdf'>Open Today's Briefing (PDF)</a>
+    <a class='pdf-button' id='pdf-open-btn' href='pdfs/Morning-Briefing-2026-08-15.pdf' data-light='pdfs/Morning-Briefing-2026-08-15.pdf' data-dark='pdfs/Morning-Briefing-2026-08-15-dark.pdf'>Open Today's Briefing (PDF)</a>
+    <div class='edition-note'>Auto-matches your device's light/dark setting. Direct links: <a href='pdfs/Morning-Briefing-2026-08-15.pdf'>light edition</a> &middot; <a href='pdfs/Morning-Briefing-2026-08-15-dark.pdf'>dark edition</a></div>
     <div class='viewer-wrap'>
-      <embed src='pdfs/Morning-Briefing-2026-08-15.pdf' type='application/pdf' class='viewer'>
+      <embed src='pdfs/Morning-Briefing-2026-08-15.pdf' type='application/pdf' class='viewer' id='pdf-viewer' data-light='pdfs/Morning-Briefing-2026-08-15.pdf' data-dark='pdfs/Morning-Briefing-2026-08-15-dark.pdf'>
     </div>
 
     <div class='archive'>
@@ -209,12 +223,26 @@
   </div>
   <footer>Updates automatically every morning.</footer>
   <script>
+    function applyPdfEdition() {
+      var theme = document.documentElement.getAttribute('data-theme');
+      var viewer = document.getElementById('pdf-viewer');
+      var btn = document.getElementById('pdf-open-btn');
+      [viewer, btn].forEach(function(el) {
+        if (!el) return;
+        var src = theme === 'dark' ? el.getAttribute('data-dark') : el.getAttribute('data-light');
+        if (!src) return;
+        if (el.tagName === 'EMBED') { el.setAttribute('src', src); }
+        else { el.setAttribute('href', src); }
+      });
+    }
     function toggleTheme() {
       var current = document.documentElement.getAttribute('data-theme');
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('mb-theme', next);
+      applyPdfEdition();
     }
+    applyPdfEdition();
   </script>
 </body>
 </html>

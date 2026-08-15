@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """
 Regenerates index.html for the Morning Briefing GitHub Pages site.
-Scans ./pdfs/ for files named Morning-Briefing-YYYY-MM-DD.pdf and builds:
-  - index.html: shows the most recent PDF inline + a download link + archive list.
+Scans ./pdfs/ for files named:
+  Morning-Briefing-YYYY-MM-DD.pdf        (light edition)
+  Morning-Briefing-YYYY-MM-DD-dark.pdf   (dark edition, optional)
+and builds index.html: shows the most recent day's briefing inline (light or
+dark PDF chosen automatically based on the visitor's OS color-scheme, with a
+manual toggle that overrides it) + a download link for both editions + an
+archive list.
 Run this from the repo root (the directory containing pdfs/).
 """
 import os
@@ -12,39 +17,66 @@ import sys
 
 REPO_ROOT = sys.argv[1] if len(sys.argv) > 1 else "."
 PDF_DIR = os.path.join(REPO_ROOT, "pdfs")
-PATTERN = re.compile(r"^Morning-Briefing-(\d{4}-\d{2}-\d{2})\.pdf$")
+LIGHT_PATTERN = re.compile(r"^Morning-Briefing-(\d{4}-\d{2}-\d{2})\.pdf$")
+DARK_PATTERN = re.compile(r"^Morning-Briefing-(\d{4}-\d{2}-\d{2})-dark\.pdf$")
+
 
 def load_dates():
-    dates = []
+    """Returns dates (desc) that have at least a light PDF, and the set of
+    dates that also have a dark PDF."""
+    light_dates = []
+    dark_dates = set()
     if os.path.isdir(PDF_DIR):
         for fname in os.listdir(PDF_DIR):
-            m = PATTERN.match(fname)
+            m = LIGHT_PATTERN.match(fname)
             if m:
-                dates.append(m.group(1))
-    dates.sort(reverse=True)
-    return dates
+                light_dates.append(m.group(1))
+                continue
+            m = DARK_PATTERN.match(fname)
+            if m:
+                dark_dates.add(m.group(1))
+    light_dates.sort(reverse=True)
+    return light_dates, dark_dates
+
 
 def pretty(date_str):
     d = datetime.datetime.strptime(date_str, "%Y-%m-%d")
     return d.strftime("%A, %B ") + str(d.day) + d.strftime(", %Y")
 
-def build_html(dates):
+
+def build_html(dates, dark_dates):
     if not dates:
         latest_block = "<p>No briefings published yet. Check back tomorrow morning.</p>"
     else:
         latest = dates[0]
-        latest_file = f"pdfs/Morning-Briefing-{latest}.pdf"
+        light_file = f"pdfs/Morning-Briefing-{latest}.pdf"
+        has_dark = latest in dark_dates
+        dark_file = f"pdfs/Morning-Briefing-{latest}-dark.pdf" if has_dark else light_file
+
+        dl_row = f"<a class='pdf-button' id='pdf-open-btn' href='{light_file}' data-light='{light_file}' data-dark='{dark_file}'>Open Today's Briefing (PDF)</a>"
+        edition_note = (
+            "<div class='edition-note'>Auto-matches your device's light/dark setting. "
+            f"Direct links: <a href='{light_file}'>light edition</a>"
+            + (f" &middot; <a href='{dark_file}'>dark edition</a>" if has_dark else " (dark edition not available for today)")
+            + "</div>"
+        )
+
         latest_block = f"""
     <div class='today-tag'>TODAY &mdash; {pretty(latest)}</div>
-    <a class='pdf-button' href='{latest_file}'>Open Today's Briefing (PDF)</a>
+    {dl_row}
+    {edition_note}
     <div class='viewer-wrap'>
-      <embed src='{latest_file}' type='application/pdf' class='viewer'>
+      <embed src='{light_file}' type='application/pdf' class='viewer' id='pdf-viewer' data-light='{light_file}' data-dark='{dark_file}'>
     </div>
 """
 
     archive_items = ""
     for d in dates[1:22]:
-        archive_items += f"      <li><a href='pdfs/Morning-Briefing-{d}.pdf'>{pretty(d)}</a></li>\n"
+        light_file = f"pdfs/Morning-Briefing-{d}.pdf"
+        row = f"<a href='{light_file}'>{pretty(d)}</a>"
+        if d in dark_dates:
+            row += f" &middot; <a class='muted-link' href='pdfs/Morning-Briefing-{d}-dark.pdf'>dark</a>"
+        archive_items += f"      <li>{row}</li>\n"
     if not archive_items:
         archive_items = "      <li class='muted'>Nothing archived yet.</li>\n"
 
@@ -160,8 +192,17 @@ def build_html(dates):
     font-weight: 600;
     padding: 14px 20px;
     border-radius: 6px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto;
     max-width: 420px;
+  }}
+  .edition-note {{
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    margin: 8px 0 20px 0;
+  }}
+  .edition-note a {{
+    color: var(--link);
   }}
   .viewer-wrap {{
     border: 1px solid var(--viewer-border);
@@ -200,6 +241,10 @@ def build_html(dates):
   .archive a:hover {{
     text-decoration: underline;
   }}
+  .muted-link {{
+    color: var(--muted) !important;
+    font-size: 12px;
+  }}
   .muted {{
     color: var(--muted);
   }}
@@ -226,7 +271,7 @@ def build_html(dates):
   <div class='masthead'>
     <div class='sub'>Prepared for Marcus Johnson &middot; San Antonio, Texas</div>
     <h1>The Morning Briefing</h1>
-    <div class='sub'>Politics &middot; Law &middot; Middle East &middot; Rome &middot; The World</div>
+    <div class='sub'>Politics &middot; Law &middot; Geopolitics &middot; Markets</div>
   </div>
   <div class='content'>
 {latest_block}
@@ -238,12 +283,26 @@ def build_html(dates):
   </div>
   <footer>Updates automatically every morning.</footer>
   <script>
+    function applyPdfEdition() {{
+      var theme = document.documentElement.getAttribute('data-theme');
+      var viewer = document.getElementById('pdf-viewer');
+      var btn = document.getElementById('pdf-open-btn');
+      [viewer, btn].forEach(function(el) {{
+        if (!el) return;
+        var src = theme === 'dark' ? el.getAttribute('data-dark') : el.getAttribute('data-light');
+        if (!src) return;
+        if (el.tagName === 'EMBED') {{ el.setAttribute('src', src); }}
+        else {{ el.setAttribute('href', src); }}
+      }});
+    }}
     function toggleTheme() {{
       var current = document.documentElement.getAttribute('data-theme');
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('mb-theme', next);
+      applyPdfEdition();
     }}
+    applyPdfEdition();
   </script>
 </body>
 </html>
@@ -251,8 +310,8 @@ def build_html(dates):
     return html
 
 if __name__ == "__main__":
-    dates = load_dates()
-    html = build_html(dates)
+    dates, dark_dates = load_dates()
+    html = build_html(dates, dark_dates)
     with open(os.path.join(REPO_ROOT, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"Generated index.html with {len(dates)} briefing(s). Latest: {dates[0] if dates else 'none'}")
+    print(f"Generated index.html with {len(dates)} briefing(s) ({len(dark_dates)} with a dark edition). Latest: {dates[0] if dates else 'none'}")
