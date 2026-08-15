@@ -1,0 +1,11 @@
+{
+  "_comment": "Real share counts and cost basis go here. Populate by hand, or run schwab_client.py LOCALLY on Marcus's machine (it needs a real browser login and app credentials that must never leave that machine) and paste the result in. Until filled in, exit-watches on these symbols will report unrealized/allocation as n/a; entry-watches on unheld symbols are unaffected.",
+  "holdings": [
+    {"symbol": "BLK", "shares": null, "cost_basis_per_share": null},
+    {"symbol": "AAPL", "shares": null, "cost_basis_per_share": null},
+    {"symbol": "LMT", "shares": null, "cost_basis_per_share": null},
+    {"symbol": "XOM", "shares": null, "cost_basis_per_share": null},
+    {"symbol": "IAU", "shares": null, "cost_basis_per_share": null},
+    {"symbol": "IBIT", "shares": null, "cost_basis_per_share": null}
+  ]
+}
