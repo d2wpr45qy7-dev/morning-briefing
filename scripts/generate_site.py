@@ -53,23 +53,77 @@ def build_html(dates):
 <head>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='color-scheme' content='light dark'>
 <title>The Morning Briefing</title>
 <style>
+  :root {{
+    --bg: #fbf7ef;
+    --text: #1a1a1a;
+    --sub: #555;
+    --rule: #1a1a1a;
+    --accent: #a11f1f;
+    --button-bg: #143a63;
+    --button-text: #fbf7ef;
+    --viewer-border: #ccc;
+    --viewer-shadow: rgba(0,0,0,0.08);
+    --link: #143a63;
+    --divider: #ddd;
+    --muted: #888;
+    --toggle-bg: #eee2cf;
+    --toggle-text: #1a1a1a;
+    --toggle-border: #1a1a1a;
+  }}
+  html[data-theme='dark'] {{
+    --bg: #15130f;
+    --text: #ece5d8;
+    --sub: #b3a998;
+    --rule: #ece5d8;
+    --accent: #e2795f;
+    --button-bg: #3f6ea5;
+    --button-text: #101010;
+    --viewer-border: #3a352c;
+    --viewer-shadow: rgba(0,0,0,0.4);
+    --link: #7ea6d8;
+    --divider: #332f27;
+    --muted: #8f8a7c;
+    --toggle-bg: #2a261e;
+    --toggle-text: #ece5d8;
+    --toggle-border: #ece5d8;
+  }}
+  * {{ transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease; }}
   body {{
-    background: #fbf7ef;
-    color: #1a1a1a;
+    background: var(--bg);
+    color: var(--text);
     font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0 16px 40px 16px;
   }}
+  .theme-toggle {{
+    max-width: 760px;
+    margin: 14px auto 0 auto;
+    display: flex;
+    justify-content: flex-end;
+  }}
+  .theme-toggle button {{
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: var(--toggle-bg);
+    color: var(--toggle-text);
+    border: 1px solid var(--toggle-border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+  }}
   .masthead {{
     max-width: 760px;
     margin: 0 auto;
-    border-top: 4px double #1a1a1a;
-    border-bottom: 4px double #1a1a1a;
+    border-top: 4px double var(--rule);
+    border-bottom: 4px double var(--rule);
     padding: 10px 0;
     text-align: center;
-    margin-top: 24px;
+    margin-top: 10px;
   }}
   .masthead h1 {{
     font-family: Georgia, 'Times New Roman', serif;
@@ -81,7 +135,7 @@ def build_html(dates):
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #555;
+    color: var(--sub);
   }}
   .content {{
     max-width: 760px;
@@ -92,15 +146,15 @@ def build_html(dates):
     font-weight: bold;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #a11f1f;
+    color: var(--accent);
     margin-bottom: 8px;
     text-align: center;
   }}
   .pdf-button {{
     display: block;
     text-align: center;
-    background: #143a63;
-    color: #fbf7ef;
+    background: var(--button-bg);
+    color: var(--button-text);
     text-decoration: none;
     font-size: 17px;
     font-weight: 600;
@@ -110,9 +164,10 @@ def build_html(dates):
     max-width: 420px;
   }}
   .viewer-wrap {{
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    border: 1px solid var(--viewer-border);
+    box-shadow: 0 2px 10px var(--viewer-shadow);
     margin-bottom: 30px;
+    background: #fff;
   }}
   .viewer {{
     width: 100%;
@@ -125,7 +180,7 @@ def build_html(dates):
   .archive h2 {{
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 18px;
-    border-bottom: 2px solid #1a1a1a;
+    border-bottom: 2px solid var(--rule);
     padding-bottom: 6px;
   }}
   .archive ul {{
@@ -135,29 +190,39 @@ def build_html(dates):
   }}
   .archive li {{
     padding: 7px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--divider);
     font-size: 14px;
   }}
   .archive a {{
-    color: #143a63;
+    color: var(--link);
     text-decoration: none;
   }}
   .archive a:hover {{
     text-decoration: underline;
   }}
   .muted {{
-    color: #888;
+    color: var(--muted);
   }}
   footer {{
     max-width: 760px;
     margin: 30px auto 0 auto;
     text-align: center;
     font-size: 11px;
-    color: #888;
+    color: var(--muted);
   }}
 </style>
+<script>
+  (function() {{
+    var stored = localStorage.getItem('mb-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  }})();
+</script>
 </head>
 <body>
+  <div class='theme-toggle'>
+    <button id='theme-toggle-btn' onclick='toggleTheme()' aria-label='Toggle dark mode'>&#9788; / &#9790;</button>
+  </div>
   <div class='masthead'>
     <div class='sub'>Prepared for Marcus Johnson &middot; San Antonio, Texas</div>
     <h1>The Morning Briefing</h1>
@@ -172,6 +237,14 @@ def build_html(dates):
     </div>
   </div>
   <footer>Updates automatically every morning.</footer>
+  <script>
+    function toggleTheme() {{
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('mb-theme', next);
+    }}
+  </script>
 </body>
 </html>
 """
