@@ -1,2 +1,3 @@
 scripts/portfolio-tracker/.schwab_token_cache.json
 scripts/portfolio-tracker/*.env
+scripts/portfolio-tracker/sync.log
