@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='color-scheme' content='light dark'>
+<title>Weekly Essays &mdash; The Morning Briefing</title>
+<style>
+
+  :root {
+    --bg: #fbf7ef; --text: #1a1a1a; --sub: #555; --rule: #1a1a1a;
+    --accent: #a11f1f; --button-bg: #143a63; --button-text: #fbf7ef;
+    --link: #143a63; --divider: #ddd; --muted: #888;
+    --toggle-bg: #eee2cf; --toggle-text: #1a1a1a; --toggle-border: #1a1a1a;
+    --card-bg: #fff; --card-border: #e4ddcc;
+  }
+  html[data-theme='dark'] {
+    --bg: #15130f; --text: #ece5d8; --sub: #b3a998; --rule: #ece5d8;
+    --accent: #e2795f; --button-bg: #3f6ea5; --button-text: #101010;
+    --link: #7ea6d8; --divider: #332f27; --muted: #8f8a7c;
+    --toggle-bg: #2a261e; --toggle-text: #ece5d8; --toggle-border: #ece5d8;
+    --card-bg: #1c1913; --card-border: #332f27;
+  }
+  * { transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0 16px 40px 16px; }
+  .theme-toggle { max-width: 760px; margin: 14px auto 0 auto; display: flex; justify-content: flex-end; }
+  .theme-toggle button { font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; background: var(--toggle-bg); color: var(--toggle-text); border: 1px solid var(--toggle-border); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .masthead { max-width: 760px; margin: 10px auto 0 auto; border-top: 4px double var(--rule); border-bottom: 4px double var(--rule); padding: 10px 0; text-align: center; }
+  .masthead h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 30px; margin: 4px 0; letter-spacing: 0.5px; }
+  .masthead .sub { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--sub); }
+  .nav-row { max-width: 760px; margin: 8px auto 0 auto; text-align: center; font-size: 12px; }
+  .nav-row a { color: var(--link); text-decoration: none; margin: 0 8px; }
+  .nav-row a:hover { text-decoration: underline; }
+  .content { max-width: 760px; margin: 20px auto; }
+  footer { max-width: 760px; margin: 30px auto 0 auto; text-align: center; font-size: 11px; color: var(--muted); }
+
+  .essay-body h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 24px; margin-top: 0; }
+  .essay-body h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; border-bottom: 2px solid var(--rule); padding-bottom: 6px; margin-top: 40px; scroll-margin-top: 20px; }
+  .essay-body p { line-height: 1.6; font-size: 15px; }
+  .essay-body strong { color: var(--accent); }
+  .essay-body a { color: var(--link); }
+  .essay-index-list { list-style: none; padding: 0; margin: 0; }
+  .essay-week { border: 1px solid var(--card-border); background: var(--card-bg); border-radius: 8px; padding: 14px 18px; margin-bottom: 14px; }
+  .essay-week .week-date { font-weight: bold; font-size: 13px; margin-bottom: 8px; }
+  .essay-week .week-date a { color: var(--text); text-decoration: none; }
+  .essay-week ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  .essay-week li { margin-bottom: 4px; }
+  .essay-week a { color: var(--link); text-decoration: none; }
+  .essay-week a:hover { text-decoration: underline; }
+</style>
+
+<script>
+  (function() {
+    var stored = localStorage.getItem('mb-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+
+</head>
+<body>
+  <div class='theme-toggle'><button onclick='toggleTheme()' aria-label='Toggle dark mode'>&#9788; / &#9790;</button></div>
+  <div class='masthead'>
+    <div class='sub'>Prepared for Marcus Johnson &middot; San Antonio, Texas</div>
+    <h1>The Morning Briefing</h1>
+    <div class='sub'>Weekly Essays &middot; Politics, History/Philosophy, Conversation, Science</div>
+  </div>
+  <div class='nav-row'><a href='index.html'>&larr; Briefing</a></div>
+  <div class='content'>
+<p>No essays published yet. Check back Saturday.</p>
+  </div>
+  <footer>Weekly essays, published Saturdays.</footer>
+
+<script>
+  function toggleTheme() {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('mb-theme', next);
+  }
+</script>
+
+</body>
+</html>
