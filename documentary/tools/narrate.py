@@ -31,15 +31,15 @@ def main(script, outdir, ref):
     for n, (section, p) in enumerate(paras, 1):
         quote = p.startswith('"')
         spoken = speakable(p)
-        key = hashlib.md5(f"{spoken}|{os.path.basename(ref)}|{EXAG}|{CFG}|{quote}".encode()).hexdigest()[:8]
-        path = os.path.abspath(os.path.join(outdir, f"n{n:02d}_{key}.wav"))
+        key = hashlib.md5(f"{spoken}|{os.path.basename(ref)}|{EXAG}|{CFG}|{quote}".encode()).hexdigest()[:10]
+        path = os.path.abspath(os.path.join(outdir, f"p_{key}.wav"))
         if not os.path.exists(path):
             if model is None:
                 from chatterbox.tts import ChatterboxTTS
                 model = ChatterboxTTS.from_pretrained(device="cpu")
             pieces = []
             for i, c in enumerate(chunks(spoken)):
-                torch.manual_seed(1000 * n + i)
+                torch.manual_seed(int(key[:6], 16) + i)
                 w = model.generate(c, audio_prompt_path=ref, exaggeration=0.5 if quote else EXAG, cfg_weight=CFG)
                 pieces.append(w.squeeze(0).numpy())
                 pieces.append(np.zeros(int(GAP * model.sr), dtype=np.float32))
