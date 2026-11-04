@@ -38,14 +38,20 @@ def fetch(e):
     if os.path.exists(path):
         return "cached"
     k = e["kind"]
+    meta = {}
     if k == "loc":
         d = json.loads(get(f"https://www.loc.gov/item/{e['id']}/?fo=json"))
+        it = d["item"]
+        meta = dict(title=it.get("title"), license=it.get("rights_advisory") or "No known restrictions on publication",
+                    artist=", ".join(it.get("contributor_names") or it.get("creator") or [])[:120], source=f"https://www.loc.gov/item/{e['id']}")
         files = [f for fs in d["resources"][0]["files"] for f in fs]
         tif = [f["url"] for f in files if f.get("mimetype") == "image/tiff"]
         jpg = sorted([f for f in files if f.get("mimetype") == "image/jpeg"], key=lambda f: f.get("width") or 0)
         save_jpeg(get(tif[0] if tif else jpg[-1]["url"]), path)
     elif k == "cma":
         o = json.loads(get(f"https://openaccess-api.clevelandart.org/api/artworks/{e['id']}"))["data"]
+        meta = dict(title=o["title"], license="CC0 (Cleveland Museum of Art Open Access)",
+                    artist=((o.get("creators") or [{}])[0].get("description") or (o.get("culture") or [""])[0]), source=o.get("url"))
         imgs = o.get("images") or {}
         save_jpeg(get((imgs.get("print") or imgs.get("web"))["url"]), path)
     elif k == "ia_file":
@@ -65,6 +71,8 @@ def fetch(e):
         open(path, "wb").write(get(e["url"], timeout=900))
     else:
         raise ValueError(k)
+    meta = {**meta, **{x: e[x] for x in ("title", "license", "artist", "source") if x in e}}
+    json.dump(meta, open(path + ".json", "w"))
     time.sleep(1)
     return "downloaded"
 
@@ -75,7 +83,9 @@ def credits_md(entries, out_path, title):
              "Music: original score composed and synthesized for this film.", "Maps: drawn from Natural Earth (public domain).", "",
              "## Archival images, documents and footage", ""]
     for e in sorted(entries, key=lambda e: e["file"]):
-        if e.get("credit") is False:
+        side = os.path.join(ASSETS, e["file"] + ".json")
+        e = {**(json.load(open(side)) if os.path.exists(side) else {}), **e}
+        if e.get("credit") is False or "title" not in e:
             continue
         lines.append(f"- {e['title']}. {('By ' + e['artist'] + '. ') if e.get('artist') else ''}License: {e['license']}. Source: {e['source']}")
     open(out_path, "w").write("\n".join(lines) + "\n")

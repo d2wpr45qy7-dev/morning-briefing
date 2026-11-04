@@ -1,0 +1,621 @@
+[
+ {
+  "kind": "loc",
+  "id": "2017660759",
+  "file": "loc/alhambra_court_of_lions.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660750",
+  "file": "loc/alhambra_dos_hermanas.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660752",
+  "file": "loc/granada_from_silla_del_moro.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660753",
+  "file": "loc/alhambra_sierra_nevada.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660381",
+  "file": "loc/cordoba_mezquita.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660370",
+  "file": "loc/cordoba_patio_naranjos.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2021646917",
+  "file": "loc/toledo_stereo_1902.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "96510407",
+  "file": "loc/gibraltar_stereo_1895.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660786",
+  "file": "loc/seville_giralda.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "117499",
+  "file": "cma/visigothic_tomb_plaque.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "161779",
+  "file": "cma/visigothic_belt_buckle.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "423612",
+  "file": "cma/madinat_al_zahra_capital.jpg"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p045_illustration_07_lg.jpg",
+  "file": "lanepoole/sierra_nevada.jpg",
+  "title": "The Sierra Nevada. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p133_illustration_13_lg.jpg",
+  "file": "lanepoole/cordoba_mosque_exterior.jpg",
+  "title": "Exterior of the Great Mosque at Cordova. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p137_illustration_14_lg.jpg",
+  "file": "lanepoole/cordoba_mosque_gate.jpg",
+  "title": "Gate of the Mosque of Cordova. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p215_illustration_22_lg.jpg",
+  "file": "lanepoole/almohad_banner.jpg",
+  "title": "Banner of the Almohades. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "apopularhistoryo11951gut",
+  "path": "11951-h/images/193.jpg",
+  "file": "engraving/battle_of_tours.jpg",
+  "title": "Battle near Tours, 732. Illustration in F. Guizot, A Popular History of France, vol. 1 (Boston: Estes & Lauriat, 1869)",
+  "license": "Public domain",
+  "artist": "Alphonse de Neuville and engravers",
+  "source": "https://archive.org/details/apopularhistoryo11951gut (Project Gutenberg #11951)"
+ },
+ {
+  "kind": "ia_page",
+  "id": "chronicaminorasa11momm",
+  "leaf": 368,
+  "file": "docs/chronicle754_p353.jpg",
+  "title": "Chronicle of 754 (Continuatio Hispana), Latin text, ed. Th. Mommsen, MGH Auctores antiquissimi 11 (Berlin, 1894), p. 353",
+  "license": "Public domain",
+  "artist": "Monumenta Germaniae Historica",
+  "source": "https://archive.org/details/chronicaminorasa11momm"
+ },
+ {
+  "kind": "ia_video",
+  "id": "Flickr-14436040508",
+  "file": "video/alcazaba_adarves.avi",
+  "title": "The Alcazaba Fortress, the Alhambra, Granada: Jardín de los Adarves",
+  "artist": "Elliott Brown",
+  "license": "CC BY-SA 2.0",
+  "source": "https://archive.org/details/Flickr-14436040508"
+ },
+ {
+  "kind": "ia_video",
+  "id": "Flickr-14619119101",
+  "file": "video/alcazaba_views.avi",
+  "title": "The Alcazaba Fortress, the Alhambra, Granada: views of Granada and the Albaicín",
+  "artist": "Elliott Brown",
+  "license": "CC BY-SA 2.0",
+  "source": "https://archive.org/details/Flickr-14619119101"
+ },
+ {
+  "kind": "ia_video",
+  "id": "Flickr-8135986532",
+  "file": "video/cordoba_mass.mov",
+  "title": "Mass in the Mosque-Cathedral of Córdoba",
+  "artist": "baldeaglebluff (Flickr)",
+  "license": "CC BY-SA 2.0",
+  "source": "https://archive.org/details/Flickr-8135986532"
+ },
+ {
+  "kind": "url",
+  "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
+  "file": "geo/ne_10m_land.geojson",
+  "credit": false
+ },
+ {
+  "kind": "url",
+  "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_rivers_lake_centerlines.geojson",
+  "file": "geo/ne_10m_rivers.geojson",
+  "credit": false
+ },
+ {
+  "kind": "loc",
+  "id": "2018756823",
+  "file": "loc/covadonga_1882.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660782",
+  "file": "loc/segovia_alcazar.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660390",
+  "file": "loc/cordoba_mihrab.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660396",
+  "file": "loc/cordoba_bridge.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660791",
+  "file": "loc/seville_cathedral.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660785",
+  "file": "loc/seville_puerta_del_perdon.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2021646901",
+  "file": "loc/toledo_santa_maria_la_blanca.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660757",
+  "file": "loc/alhambra_puerta_del_vino.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660754",
+  "file": "loc/alhambra_palace_charles_v.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660366",
+  "file": "loc/granada_tombs_catholic_monarchs.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2021645840",
+  "file": "loc/granada_cathedral_from_gate_of_justice.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660375",
+  "file": "loc/alhambra_mesquita.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2001696369",
+  "file": "loc/algiers_harbor_admiralty.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2001697802",
+  "file": "loc/algiers_harbor_lighthouse.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2016647044",
+  "file": "loc/lepanto_1571_print.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "91480957",
+  "file": "loc/columbus_departure_print.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660342",
+  "file": "loc/valencia_miguelete.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660334",
+  "file": "loc/valencia_plaza_de_la_seo.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660386",
+  "file": "loc/burgos_escalera_dorada.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660367",
+  "file": "loc/escorial_monastery.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660392",
+  "file": "loc/escorial_plaza.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2024639595",
+  "file": "loc/avila_walls_1904.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "94511708",
+  "file": "loc/avila_view_1860.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "90708233",
+  "file": "loc/segovia_bridge.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2021646913",
+  "file": "loc/toledo_cathedral_close.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2021646905",
+  "file": "loc/toledo_cathedral_gate_of_lions.jpg"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_f004_illustration_01_front_lg.jpg",
+  "file": "lanepoole/alpuxarras.jpg",
+  "title": "The Alpuxarras. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p226a_granada_lg.jpg",
+  "file": "lanepoole/plan_of_granada.jpg",
+  "title": "Plan of the city of Granada. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p219_illustration_23_lg.jpg",
+  "file": "lanepoole/shield_king_of_granada.jpg",
+  "title": "Shield of a King of Granada. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p153_illustration_16_lg.jpg",
+  "file": "lanepoole/koran_case_escorial.jpg",
+  "title": "Ancient Koran case, Escorial Library. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p229_illustration_25_lg.jpg",
+  "file": "lanepoole/generalife_garden.jpg",
+  "title": "Garden of the Generalife, Granada. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p261_illustration_29_lg.jpg",
+  "file": "lanepoole/sword_of_boabdil.jpg",
+  "title": "Sword of Boabdil. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p255_illustration_28_lg.jpg",
+  "file": "lanepoole/malaga.jpg",
+  "title": "Malaga. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p027_illustration_04_lg.jpg",
+  "file": "lanepoole/toledo_puerta_del_sol.jpg",
+  "title": "Puerta del Sol, Toledo. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p243_illustration_26_lg.jpg",
+  "file": "lanepoole/alhambra_window.jpg",
+  "title": "A window in the Alhambra. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "themoorsinspain37223gut",
+  "path": "37223-h/images/illo_p009_illustration_02_lg.jpg",
+  "file": "lanepoole/toledo.jpg",
+  "title": "Toledo. Illustration in S. Lane-Poole, The Story of the Moors in Spain (London: T. Fisher Unwin, 1886)",
+  "license": "Public domain",
+  "artist": "19th-century illustrator",
+  "source": "https://archive.org/details/themoorsinspain37223gut (Project Gutenberg #37223)"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_362_lg.jpg",
+  "file": "collins/santiago_cathedral.jpg",
+  "title": "Santiago. The Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_368_lg.jpg",
+  "file": "collins/santiago_south_door.jpg",
+  "title": "Santiago. South door of the Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_376_lg.jpg",
+  "file": "collins/santiago_interior.jpg",
+  "title": "Santiago. Interior of the Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_448_lg.jpg",
+  "file": "collins/oviedo_cathedral.jpg",
+  "title": "Oviedo. In the Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_426_lg.jpg",
+  "file": "collins/leon_cathedral.jpg",
+  "title": "Leon. The Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_005_lg.jpg",
+  "file": "collins/burgos_cathedral.jpg",
+  "title": "Burgos. The Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_482_lg.jpg",
+  "file": "collins/burgos_capilla_mayor.jpg",
+  "title": "Burgos. The Capilla Mayor. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_238_lg.jpg",
+  "file": "collins/toledo_cathedral.jpg",
+  "title": "Toledo. The Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_074_lg.jpg",
+  "file": "collins/cordoba_campanario.jpg",
+  "title": "Cordova. The Campanario tower. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_068_lg.jpg",
+  "file": "collins/cordoba_mesquita_interior.jpg",
+  "title": "Cordova. Interior of the Mesquita. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_102_lg.jpg",
+  "file": "collins/granada_cathedral.jpg",
+  "title": "Granada. Exterior of the Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_130_lg.jpg",
+  "file": "collins/granada_generalife.jpg",
+  "title": "Granada. Generalife. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_158_lg.jpg",
+  "file": "collins/valencia_cathedral_door.jpg",
+  "title": "Valencia. Door of the Cathedral. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_296_lg.jpg",
+  "file": "collins/avila.jpg",
+  "title": "Avila. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_318_lg.jpg",
+  "file": "collins/segovia_aqueduct.jpg",
+  "title": "Segovia. The Aqueduct. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_138_lg.jpg",
+  "file": "collins/malaga_harbour.jpg",
+  "title": "Malaga. View from the harbour. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_338_lg.jpg",
+  "file": "collins/saragossa_la_seo.jpg",
+  "title": "Saragossa. La Seo. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_file",
+  "id": "cathedralcitieso40356gut",
+  "path": "40356-h/images/ill_044_lg.jpg",
+  "file": "collins/seville_giralda_collins.jpg",
+  "title": "Seville. The Giralda tower. Watercolour in W. W. Collins, Cathedral Cities of Spain (London: Heinemann, 1909)",
+  "license": "Public domain",
+  "artist": "William Wiehe Collins (1862-1951)",
+  "source": "https://www.gutenberg.org/ebooks/40356"
+ },
+ {
+  "kind": "ia_page",
+  "id": "historiasocialpo03amad",
+  "leaf": 623,
+  "file": "docs/alhambra_decree_reason.jpg",
+  "title": "Edict of expulsion of the Jews, 31 March 1492, printed in J. Amador de los Ríos, Historia social, política y religiosa de los judíos de España y Portugal, vol. 3 (Madrid, 1876), appendix IV, p. 604",
+  "license": "Public domain",
+  "artist": "José Amador de los Ríos (1818-1878)",
+  "source": "https://archive.org/details/historiasocialpo03amad"
+ },
+ {
+  "kind": "ia_page",
+  "id": "historiasocialpo03amad",
+  "leaf": 625,
+  "file": "docs/alhambra_decree_deadline.jpg",
+  "title": "Edict of expulsion of the Jews, 31 March 1492, printed in J. Amador de los Ríos, Historia social, política y religiosa de los judíos de España y Portugal, vol. 3 (Madrid, 1876), appendix IV, p. 606",
+  "license": "Public domain",
+  "artist": "José Amador de los Ríos (1818-1878)",
+  "source": "https://archive.org/details/historiasocialpo03amad"
+ },
+ {
+  "kind": "ia_page",
+  "id": "losmoriscosespa02borouoft",
+  "leaf": 204,
+  "file": "docs/valencia_bando_1609_letter.jpg",
+  "title": "Proclamation of the expulsion of the Moriscos, Valencia, 22 September 1609, printed in P. Boronat y Barrachina, Los moriscos españoles y su expulsión, vol. 2 (Valencia, 1901), p. 191",
+  "license": "Public domain",
+  "artist": "Pascual Boronat y Barrachina",
+  "source": "https://archive.org/details/losmoriscosespa02borouoft"
+ },
+ {
+  "kind": "ia_page",
+  "id": "losmoriscosespa02borouoft",
+  "leaf": 205,
+  "file": "docs/valencia_bando_1609_clauses.jpg",
+  "title": "Proclamation of the expulsion of the Moriscos, Valencia, 22 September 1609, printed in P. Boronat y Barrachina, Los moriscos españoles y su expulsión, vol. 2 (Valencia, 1901), p. 192",
+  "license": "Public domain",
+  "artist": "Pascual Boronat y Barrachina",
+  "source": "https://archive.org/details/losmoriscosespa02borouoft"
+ },
+ {
+  "kind": "ia_page",
+  "id": "losmoriscosespa02borouoft",
+  "leaf": 206,
+  "file": "docs/valencia_bando_1609_exemptions.jpg",
+  "title": "Proclamation of the expulsion of the Moriscos, Valencia, 22 September 1609, printed in P. Boronat y Barrachina, Los moriscos españoles y su expulsión, vol. 2 (Valencia, 1901), p. 193",
+  "license": "Public domain",
+  "artist": "Pascual Boronat y Barrachina",
+  "source": "https://archive.org/details/losmoriscosespa02borouoft"
+ }
+]
