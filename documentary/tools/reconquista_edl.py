@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from render import W, H, DOC, ASSETS, Still, Footage, Text, Fade, Black, Document, render
 from maps import MapShot
 from textnorm import norm
+from credits_roll import roll_shot
 import ia_find
 
 XF = 0.6
@@ -33,7 +34,9 @@ for i, p in enumerate(man):
         t += QUOTE_PAD
     p["start"] = t
     t += p["dur"] + (QUOTE_PAD if p["quote"] else 0) + GAP
-TOTAL = t - GAP + TAIL
+END = t - GAP + TAIL  # end of the narrated film; the credits roll follows
+ROLL, ROLL_SHOT = roll_shot(os.path.join(DOC, "assets_reconquista.json"), "The Reconquista", "reconquista")
+TOTAL = END + ROLL
 P = {p["n"]: p for p in man}
 T_TITLE = P[3]["title_at"]
 
@@ -438,6 +441,9 @@ shot(ps(64) - 0.2, lambda d: MapShot(d, cam=[(0, -6.5, 40.5, 12.5), (d, -6.6, 40
                                      labels=[(0.3, -8.54, 42.88, "Santiago", None), (0.6, -4.78, 37.88, "Córdoba", None)]))
 shot(at(64, "To"), lambda d: photo("collins/santiago_cathedral.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.42, 1.18), parallax=0.10,
                                    overlays=[Fade(d - 3.5, d - 0.3, out=True)]))
+
+shot(END, ROLL_SHOT)
+CUTS.add(END)
 
 
 def build():

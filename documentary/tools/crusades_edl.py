@@ -11,6 +11,7 @@ from render import W, H, DOC, ASSETS, Still, Footage, Text, Fade, Black, Documen
 import maps
 from maps import MapShot
 from textnorm import norm
+from credits_roll import roll_shot
 import ia_find
 
 maps.use_region("mediterranean")
@@ -36,7 +37,9 @@ for i, p in enumerate(man):
         t += QUOTE_PAD
     p["start"] = t
     t += p["dur"] + (QUOTE_PAD if p["quote"] else 0) + GAP
-TOTAL = t - GAP + TAIL
+END = t - GAP + TAIL  # end of the narrated film; the credits roll follows
+ROLL, ROLL_SHOT = roll_shot(os.path.join(DOC, "assets_crusades.json"), "The Crusades", "crusades")
+TOTAL = END + ROLL
 P = {p["n"]: p for p in man}
 T_TITLE = P[3]["title_at"]
 
@@ -510,6 +513,9 @@ shot(ps(42) - 0.2, lambda d: Still("cma/true_cross_reliquary_1214.jpg", d, start
 shot(at(42, "empty"), lambda d: photo("loc/holy_sepulchre_interior.jpg", d, start=(0.5, 0.45, 1.18), end=(0.5, 0.5, 1.0), parallax=0.10))
 shot(at(42, "Church"), lambda d: photo("loc/holy_sepulchre_front.jpg", d, start=(0.5, 0.5, 1.18), end=(0.5, 0.45, 1.0), parallax=0.12,
                                        overlays=[Fade(d - 3.5, d - 0.3, out=True)]))
+
+shot(END, ROLL_SHOT)
+CUTS.add(END)
 
 
 def build():
