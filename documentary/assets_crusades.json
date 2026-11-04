@@ -1,0 +1,701 @@
+[
+ {
+  "kind": "loc",
+  "id": "2002725003",
+  "file": "loc/holy_sepulchre_front.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002725004",
+  "file": "loc/holy_sepulchre_interior.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002724996",
+  "file": "loc/jerusalem_general_view.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002725018",
+  "file": "loc/jerusalem_from_scopus.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002725014",
+  "file": "loc/jerusalem_damascus_gate.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002725013",
+  "file": "loc/jerusalem_st_stephens_gate.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002724999",
+  "file": "loc/jerusalem_jaffa_gate.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002717459",
+  "file": "loc/roberts_holy_sepulchre.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002724967",
+  "file": "loc/bethlehem_nativity_interior.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2022645445",
+  "file": "loc/antioch_1881.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2022645444",
+  "file": "loc/antioch_orontes_1881.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2003653107",
+  "file": "loc/hagia_sophia_1890.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "92513536",
+  "file": "loc/hagia_sophia_interior_1860.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2001699442",
+  "file": "loc/constantinople_walls_yedikule.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "92513545",
+  "file": "loc/constantinople_sea_walls_1860.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019707234",
+  "file": "loc/horns_of_hattin_1934.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019700424",
+  "file": "loc/tiberias_sea_of_galilee_1898.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2004670433",
+  "file": "loc/ramleh_tower_1867.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019698754",
+  "file": "loc/saladin_tomb_1898.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019694900",
+  "file": "loc/kaiser_jerusalem_1898_band.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019698688",
+  "file": "loc/kaiser_jerusalem_1898_cortege.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002724978",
+  "file": "loc/damascus_general_view.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002724979",
+  "file": "loc/damascus_street_called_straight.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002717510",
+  "file": "loc/roberts_acre_1839.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019691818",
+  "file": "loc/acre_crusader_castle_1920.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019706147",
+  "file": "loc/athlit_castle_towers.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019709282",
+  "file": "loc/caesarea_ramparts_1938.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2019705208",
+  "file": "loc/sahyun_moat_1934.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002724990",
+  "file": "loc/jaffa_from_sea.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660181",
+  "file": "loc/speyer_dom.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660192",
+  "file": "loc/worms_dom.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017660084",
+  "file": "loc/mainz_dom.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002710833",
+  "file": "loc/zara_general_view.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002710834",
+  "file": "loc/zara_from_sea.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2020684331",
+  "file": "loc/st_marks_venice_1901.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2020684281",
+  "file": "loc/st_marks_venice_1860.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2025711080",
+  "file": "loc/piacenza_cathedral.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2025711079",
+  "file": "loc/piacenza_cathedral_interior.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017657478",
+  "file": "loc/clermont_notre_dame_du_port.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2001697643",
+  "file": "loc/puy_de_dome.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002708426",
+  "file": "loc/vienna_kahlenberg.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2016647044",
+  "file": "loc/lepanto_1571_print.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002713351",
+  "file": "loc/vienna_1683_print.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2002713350",
+  "file": "loc/sobieski_portrait.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017657131",
+  "file": "loc/alexandria_pompeys_pillar.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2022644949",
+  "file": "loc/urfa_edessa_1881.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2020683583",
+  "file": "loc/rome_st_paul_cloister.jpg"
+ },
+ {
+  "kind": "loc",
+  "id": "2017651569",
+  "file": "loc/golgotha_1906.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "127917",
+  "file": "cma/tiraz_al_hakim_1009.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "151367",
+  "file": "cma/jerusalem_reliquary_cross.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "160978",
+  "file": "cma/pilgrim_flask_holy_sepulchre.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "130314",
+  "file": "cma/true_cross_reliquary_1214.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "108561",
+  "file": "cma/nine_heroes_godfrey.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "124041",
+  "file": "cma/tughra_mehmed_iv.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "109507",
+  "file": "cma/barbarigo_veronese.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "152000",
+  "file": "cma/augustine_print.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "145192",
+  "file": "cma/byzantine_processional_cross.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "107310",
+  "file": "cma/stroganoff_ivory.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "147235",
+  "file": "cma/madonna_of_the_rosary.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "159480",
+  "file": "cma/athlit_1859.jpg"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 8,
+  "file": "dore/holy_sepulchre.jpg",
+  "title": "Plate I, The Holy Sepulchre. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 22,
+  "file": "dore/pilgrims.jpg",
+  "title": "Plate II, Hospitality of Barbarians to Pilgrims. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 30,
+  "file": "dore/peter_the_hermit.jpg",
+  "title": "Plate IV, Peter the Hermit Preaching the Crusade. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 35,
+  "file": "dore/war_cry.jpg",
+  "title": "Plate V, War Cry of the Crusaders. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 41,
+  "file": "dore/walter_penniless.jpg",
+  "title": "Plate VI, Walter the Penniless in Hungary. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 46,
+  "file": "dore/emicho.jpg",
+  "title": "Plate VII, The Army of Volkmar and Count Emicho. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 66,
+  "file": "dore/nicaea.jpg",
+  "title": "Plate XIII, Battle of Nicaea. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 82,
+  "file": "dore/taurus.jpg",
+  "title": "Plate XVII, Crusaders Crossing the Taurus Mountains. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 94,
+  "file": "dore/antioch_ramparts.jpg",
+  "title": "Plate XX, Bohemond Mounting the Ramparts of Antioch. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 111,
+  "file": "dore/way_to_holy_city.jpg",
+  "title": "Plate XXIII, The Way to the Holy City. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 113,
+  "file": "dore/judea.jpg",
+  "title": "Plate XXIV, Crusaders in the Mountains of Judea. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 118,
+  "file": "dore/famished.jpg",
+  "title": "Plate XXVI, Famished for Water. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 122,
+  "file": "dore/repulse_jerusalem.jpg",
+  "title": "Plate XXVII, Repulse of the Crusaders at Jerusalem. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 127,
+  "file": "dore/godfrey_enters.jpg",
+  "title": "Plate XXIX, Godfrey Enters Jerusalem. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 176,
+  "file": "dore/bernard_louis.jpg",
+  "title": "Plate XXXVII, Louis VII Receiving the Cross from St. Bernard. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 213,
+  "file": "dore/de_mailly.jpg",
+  "title": "Plate XLII, Death of De Mailly, Marshal of the Temple. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 232,
+  "file": "dore/siege_of_acre.jpg",
+  "title": "Plate XLIV, The Siege of Ptolemais (Acre). Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 243,
+  "file": "dore/arsuf.jpg",
+  "title": "Plate XLVII, Battle of Arsuf. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 247,
+  "file": "dore/richard_saladin.jpg",
+  "title": "Plate XLIX, Richard and Saladin at the Battle of Arsuf. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 308,
+  "file": "dore/benediction.jpg",
+  "title": "Plate LVII, Benediction. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 333,
+  "file": "dore/departure.jpg",
+  "title": "Plate LXIV, The Departure. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 448,
+  "file": "dore/constantine_xi.jpg",
+  "title": "Plate XCI, Constantine Addressing the Defenders of Constantinople. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 450,
+  "file": "dore/mehmed_ii.jpg",
+  "title": "Plate XCII, Mehmed II before Constantinople. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 453,
+  "file": "dore/ottomans_hungary.jpg",
+  "title": "Plate XCIII, The Ottomans Penetrate Hungary. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 456,
+  "file": "dore/gathering_means.jpg",
+  "title": "Plate XCIV, Gathering Means for the Holy War. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "RecueilDesHistoriensDesCroisadesOccidentaux3",
+  "leaf": 804,
+  "file": "docs/robert_monk_clermont_p729.jpg",
+  "title": "Robert the Monk, Historia Iherosolimitana, book I, ch. 2, in Recueil des historiens des croisades, Historiens occidentaux, vol. 3 (Paris, 1866), p. 729",
+  "license": "Public domain",
+  "artist": "",
+  "source": "https://archive.org/details/RecueilDesHistoriensDesCroisadesOccidentaux3"
+ },
+ {
+  "kind": "ia_page",
+  "id": "sacrorumconcilio0020joan",
+  "leaf": 419,
+  "file": "docs/clermont_canon_mansi.jpg",
+  "title": "Canons of the Council of Clermont (1095), in J. D. Mansi, Sacrorum conciliorum nova et amplissima collectio, vol. 20",
+  "license": "Public domain",
+  "artist": "",
+  "source": "https://archive.org/details/sacrorumconcilio0020joan"
+ },
+ {
+  "kind": "url",
+  "url": "https://www.dmgh.de/mgh_ss_5/img/300/mgh_ss_5_00472.jpg",
+  "file": "docs/bernold_1095_p462.jpg",
+  "title": "Bernold of Constance, Chronicon, year 1095, in MGH Scriptores vol. 5, ed. G. H. Pertz (Hannover, 1844), p. 462",
+  "license": "Public domain (scan: Monumenta Germaniae Historica, dMGH)",
+  "artist": "",
+  "source": "https://www.dmgh.de/mgh_ss_5/index.htm"
+ },
+ {
+  "kind": "ia_video",
+  "id": "JaffaGateJerusalem1897",
+  "file": "video/jaffa_gate_1897.mkv",
+  "title": "Porte de Jaffa, côté Est (Jaffa Gate, Jerusalem), Lumière catalogue no. 401, filmed April 1897",
+  "artist": "Alexandre Promio for the Lumière company",
+  "license": "Public domain",
+  "source": "https://archive.org/details/JaffaGateJerusalem1897"
+ },
+ {
+  "kind": "url",
+  "url": "https://archive.org/download/jerusalem-1918/J%C3%A9rusalem%2C%201918.mp4",
+  "file": "video/jerusalem_1918.mp4",
+  "title": "Jerusalem, 1918 (amateur film)",
+  "artist": "Unknown amateur filmmaker; edited by Yaakov Gross",
+  "license": "Public domain",
+  "source": "https://archive.org/details/jerusalem-1918"
+ },
+ {
+  "kind": "url",
+  "url": "https://archive.org/download/Levycoll1933/Levycoll1933.mp4",
+  "file": "video/levy_1933.mp4",
+  "title": "Amateur film: Levy collection, Middle East, 1933",
+  "artist": "Levy family (Prelinger Archives)",
+  "license": "Public domain",
+  "source": "https://archive.org/details/Levycoll1933"
+ },
+ {
+  "kind": "url",
+  "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
+  "file": "geo/ne_10m_land.geojson",
+  "credit": false
+ },
+ {
+  "kind": "url",
+  "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_rivers_lake_centerlines.geojson",
+  "file": "geo/ne_10m_rivers.geojson",
+  "credit": false
+ },
+ {
+  "kind": "url",
+  "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_lakes.geojson",
+  "file": "geo/ne_10m_lakes.geojson",
+  "credit": false
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 96,
+  "file": "dore/massacre_antioch.jpg",
+  "title": "Plate XXI, Massacre at Antioch. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 59,
+  "file": "dore/wealth_of_the_east.jpg",
+  "title": "Plate X, Astonishment of the Crusaders at the Wealth of the East. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 348,
+  "file": "dore/the_return.jpg",
+  "title": "Plate LXIX, The Return. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 150,
+  "file": "dore/caesarea_massacre.jpg",
+  "title": "Plate XXXIII, Crusaders Massacring the Inhabitants of Caesarea. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 425,
+  "file": "dore/prayers_for_the_dead.jpg",
+  "title": "Plate LXXXVI, Prayers for the Dead. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "ia_page",
+  "id": "storyofcrusadesw00boyd",
+  "leaf": 414,
+  "file": "dore/the_captives.jpg",
+  "title": "Plate LXXXII, The Captives. Engraving after Gustave Doré, in J. P. Boyd, The Story of the Crusades (Philadelphia, 1892)",
+  "license": "Public domain",
+  "artist": "Gustave Doré (1832–1883)",
+  "source": "https://archive.org/details/storyofcrusadesw00boyd"
+ },
+ {
+  "kind": "loc",
+  "id": "2002724977",
+  "file": "loc/damascus_from_salhiyeh.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "131667",
+  "file": "cma/augustine_initial.jpg"
+ },
+ {
+  "kind": "cma",
+  "id": "124420",
+  "file": "cma/arabic_manuscript_1315.jpg"
+ }
+]

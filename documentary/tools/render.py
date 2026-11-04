@@ -137,14 +137,15 @@ class Still(Shot):
 
 
 class Footage(Shot):
-    def __init__(self, path, dur, src_start=0.0, speed=1.0, zoom=(1.0, 1.06), overlays=(), sharpen=False):
+    def __init__(self, path, dur, src_start=0.0, speed=1.0, zoom=(1.0, 1.06), overlays=(), sharpen=False, pre=None):
+        """pre: an ffmpeg filter applied to the source first, e.g. 'crop=1440:1080:240:0' to drop a pillarbox."""
         self.path, self.dur, self.src_start, self.speed = path, dur, src_start, speed
-        self.zoom, self.overlays, self.sharpen = zoom, overlays, sharpen
+        self.zoom, self.overlays, self.sharpen, self.pre = zoom, overlays, sharpen, pre
 
     def _frames(self):
         n = round(self.dur * FPS)
         need = self.dur * self.speed + 0.5
-        vf = f"setpts=PTS/{self.speed},fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}"
+        vf = (f"{self.pre}," if self.pre else "") + f"setpts=PTS/{self.speed},fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}"
         p = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", str(self.src_start), "-t", str(need), "-i", self.path,
                               "-vf", vf, "-an", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
         last = None

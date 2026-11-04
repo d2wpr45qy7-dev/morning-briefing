@@ -5,11 +5,23 @@ import cv2
 from PIL import Image, ImageDraw
 from render import W, H, FPS, ASSETS, CACHE, GOLD, IVORY, font, F_SANS_B, F_SERIF_I, smooth, lerp, spaced, Shot
 
-LON0, LON1, LAT0, LAT1 = -15.0, 9.0, 32.0, 50.5
-COSL = math.cos(math.radians(40))
-PPU = 260.0
-CW = int((LON1 - LON0) * COSL * PPU)
-CH = int((LAT1 - LAT0) * PPU)
+REGIONS = {  # canvas extent, the latitude whose cosine scales longitude, pixels per degree, inland water
+    "iberia": dict(lon=(-15.0, 9.0), lat=(32.0, 50.5), cos_lat=40, ppu=260.0, lakes=False),
+    "mediterranean": dict(lon=(-10.0, 46.0), lat=(23.0, 51.5), cos_lat=37, ppu=165.0, lakes=True),
+}
+
+
+def use_region(name):
+    """Select the map canvas before building any MapShot (the Reconquista uses 'iberia', the Crusades 'mediterranean')."""
+    global LON0, LON1, LAT0, LAT1, COSL, PPU, CW, CH, REGION, LAKES
+    r = REGIONS[name]
+    (LON0, LON1), (LAT0, LAT1) = r["lon"], r["lat"]
+    COSL, PPU = math.cos(math.radians(r["cos_lat"])), r["ppu"]
+    CW, CH = int((LON1 - LON0) * COSL * PPU), int((LAT1 - LAT0) * PPU)
+    REGION, LAKES = name, r["lakes"]
+
+
+use_region("iberia")
 SEA = (19, 30, 36)
 LAND = (196, 178, 140)
 COAST = (92, 74, 48)
@@ -37,7 +49,7 @@ def _polys(path):
 
 
 def base_canvas():
-    key = os.path.join(CACHE, "map_base.npz")
+    key = os.path.join(CACHE, "map_base.npz" if REGION == "iberia" else f"map_base_{REGION}.npz")
     if os.path.exists(key):
         z = np.load(key)
         return z["rgb"], z["land"]
@@ -47,6 +59,10 @@ def base_canvas():
         dl.polygon([proj(*p) for p in poly[0]], fill=255)
         for hole in poly[1:]:
             dl.polygon([proj(*p) for p in hole], fill=0)
+    lakes = os.path.join(ASSETS, "geo/ne_10m_lakes.geojson")
+    if LAKES and os.path.exists(lakes):
+        for poly in _polys(lakes):
+            dl.polygon([proj(*p) for p in poly[0]], fill=0)
     landa = np.asarray(land).astype(np.float32) / 255
     rng = np.random.default_rng(5)
     noise = cv2.resize(cv2.GaussianBlur(rng.normal(0, 1, (CH // 8, CW // 8)).astype(np.float32), (0, 0), 2), (CW, CH))[..., None]
@@ -92,8 +108,9 @@ def catmull(pts, n=60):
 
 class MapShot(Shot):
     """cam: [(t, lon, lat, span_deg_lon)].
-    sweep: (t0, t1, lat_from, lat_to, color, fill_mask) territory filled as a frontier moves north or south;
+    sweep: (t0, t1, lat_from, lat_to, color, fill_mask[, 'lon']) territory filled as a frontier moves north or south;
            fill_mask is 'iberia', 'iberia_minus_asturias' or a list of polygons; lat_to < lat_from sweeps south.
+           With 'lon' the frontier is a meridian moving from lon 'lat_from' to lon 'lat_to' (east or west).
     asturias_t: time to highlight the Asturian refuge. arrows: [(t0, t1, [(lon, lat), ...], rgb)].
     labels: [(t_in, lon, lat, text, sub[, t_out])]. markers: [(t, lon, lat)] (battle marks)."""
 
@@ -109,6 +126,7 @@ class MapShot(Shot):
         self.astur = self.iberia * poly_mask(ASTURIAS, self.ms)
         self.lm = lm
         self.lat_rows = LAT1 - np.arange(self.iberia.shape[0], dtype=np.float32) / (PPU * self.ms)
+        self.lon_cols = LON0 + np.arange(self.iberia.shape[1], dtype=np.float32) / (COSL * PPU * self.ms)
 
     def release(self):
         self.rgb = self.land = self.iberia = self.astur = self.lm = None
@@ -165,17 +183,19 @@ class MapShot(Shot):
                 key = ("base", str(which))
                 regions.setdefault(key, self.region(which))
                 fr = self._overlay_region(fr, M, regions[key], color)
-            for si, (t0, t1, lat_from, lat_to, color, which) in enumerate(self.sweeps):
+            for si, sw in enumerate(self.sweeps):
+                t0, t1, lat_from, lat_to, color, which = sw[:6]
                 if t < t0:
                     continue
                 key = (si, str(which))
                 regions.setdefault(key, self.region(which))
                 u = smooth((t - t0) / (t1 - t0))
                 front = lerp(lat_from, lat_to, u)
+                axis = self.lon_cols[None, :] if len(sw) > 6 and sw[6] == "lon" else self.lat_rows[:, None]
                 if lat_to >= lat_from:
-                    soft = np.clip((front - self.lat_rows) / 0.35, 0, 1)[:, None]
+                    soft = np.clip((front - axis) / 0.35, 0, 1)
                 else:
-                    soft = np.clip((self.lat_rows - front) / 0.35, 0, 1)[:, None]
+                    soft = np.clip((axis - front) / 0.35, 0, 1)
                 mask = regions[key] * soft
                 if mask.any():
                     fr = self._overlay_region(fr, M, mask, color, edge_col=tuple(int(c * 0.8) for c in color))
