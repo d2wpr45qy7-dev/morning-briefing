@@ -90,8 +90,16 @@ def lower(text, sub, t_in=0.6, t_out=None):
 def doc_lines(ident, leaf, image, start_pat, end_pat, pad=10):
     """Line boxes (image px) covering the words from start_pat through end_pat on one scanned page."""
     from PIL import Image
-    pw, ph, words = ia_find.pages(ident)[leaf]
+    pw, ph, raw = ia_find.pages(ident)[leaf]
     iw, ih = Image.open(os.path.join(ASSETS, image)).size
+    words = []  # OCR entries sometimes hold several words; split them and share out the box by character count
+    for text, x0, y0, x1, y1 in raw:
+        parts = text.split()
+        total = sum(len(t) for t in parts) or 1
+        x = x0
+        for t in parts:
+            xe = x + (x1 - x0) * len(t) / total
+            words.append((t, x, y0, xe, y1)); x = xe
     sx, sy = iw / pw, ih / ph
     # join words hyphenated across a line break ("cris-" + "tianos") so phrases match; keep word index spans
     toks, spans, k = [], [], 0
@@ -116,6 +124,8 @@ def doc_lines(ident, leaf, image, start_pat, end_pat, pad=10):
             l = lines[-1]; lines[-1] = [min(l[0], x0), min(l[1], y0), max(l[2], x1), max(l[3], y1)]
         else:
             lines.append([x0, y0, x1, y1])
+    left = min(l[0] for l in lines)  # continuation lines begin at the text margin
+    lines = [lines[0]] + [[left] + l[1:] for l in lines[1:]]
     return [(x0 * sx - pad, y0 * sy - pad, x1 * sx + pad, y1 * sy + pad) for x0, y0, x1, y1 in lines]
 
 
