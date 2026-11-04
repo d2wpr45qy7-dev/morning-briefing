@@ -11,3 +11,4 @@ qa/
 *.m4a
 *.log
 __pycache__/
+!media/**

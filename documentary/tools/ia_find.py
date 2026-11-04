@@ -3,7 +3,7 @@
 usage: ia_find.py IDENT "regex" [...]
 Prints, for each hit: leaf index (for page/n{leaf}.jpg), page size in the XML, and the matched words' boxes.
 """
-import json, os, re, sys, urllib.request
+import json, os, re, sys, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 
 UA = {"User-Agent": "DocBuilder/1.0 (educational history documentary)"}
@@ -14,7 +14,9 @@ os.makedirs(CACHE, exist_ok=True)
 def pages(ident):
     path = os.path.join(CACHE, f"{ident}_djvu.xml")
     if not os.path.exists(path):
-        data = urllib.request.urlopen(urllib.request.Request(f"https://archive.org/download/{ident}/{ident}_djvu.xml", headers=UA), timeout=600).read()
+        meta = json.loads(urllib.request.urlopen(urllib.request.Request(f"https://archive.org/metadata/{ident}", headers=UA), timeout=120).read())
+        name = next(f["name"] for f in meta["files"] if f["name"].endswith("_djvu.xml"))
+        data = urllib.request.urlopen(urllib.request.Request(f"https://archive.org/download/{ident}/{urllib.parse.quote(name)}", headers=UA), timeout=600).read()
         open(path, "wb").write(data)
     out = []
     for obj in ET.parse(path).getroot().iter("OBJECT"):
