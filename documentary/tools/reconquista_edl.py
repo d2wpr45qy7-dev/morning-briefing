@@ -80,6 +80,8 @@ def photo(name, d, **kw):
     """LOC photochroms carry a grey border: trim it automatically unless a crop is given."""
     if "crop" not in kw and name.startswith("loc/"):
         kw["crop"] = autocrop(name)
+    if "crop" not in kw and name.startswith("collins/"):
+        kw["crop"] = (0.012, 0.012, 0.988, 0.988)  # thin plate border; autocrop mistakes pale skies for border
     return Still(name, d, **kw)
 
 
@@ -143,6 +145,8 @@ def shot(t0, f): S.append((t0, f))
 
 TOLEDO_CARD = (0.102, 0.15, 0.495, 0.86)
 GIB_CARD = (0.095, 0.06, 0.495, 0.82)
+KEYSTONE = (0.11, 0.12, 0.485, 0.80)  # left frame of a Keystone stereograph, inside the rounded corners
+AVILA_1860 = (0.04, 0.10, 0.97, 0.80)
 
 # COLD OPEN (as approved in the pilot)
 shot(0.0, lambda d: photo("loc/alhambra_court_of_lions.jpg", d, start=(0.5, 0.60, 1.0), end=(0.5, 0.40, 1.12), parallax=0.10,
@@ -227,9 +231,9 @@ shot(ps(12), lambda d: MapShot(d, cam=[(0, -4.0, 40.5, 14.5), (d, -4.0, 40.0, 13
                                labels=[(d * 0.55, -4.02, 39.86, "Toledo", "1085")]))
 shot(at(12, "Castile"), lambda d: photo("loc/segovia_alcazar.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.45, 1.15), parallax=0.10,
                                         overlays=[lower("Segovia", "Castle of the kings of Castile", 0.6)]))
-shot(ps(13), lambda d: Still("collins/santiago_cathedral.jpg", d, start=(0.5, 0.55, 1.0), end=(0.5, 0.45, 1.15), parallax=0.08,
+shot(ps(13), lambda d: photo("collins/santiago_cathedral.jpg", d, start=(0.5, 0.55, 1.0), end=(0.5, 0.45, 1.15), parallax=0.08,
                              overlays=[lower("Santiago de Compostela", "Shrine of Saint James  ·  watercolour, W. W. Collins (1909)", at(13, "Santiago") - ps(13))]))
-shot(at(13, "sacked"), lambda d: Still("collins/santiago_interior.jpg", d, start=(0.5, 0.5, 1.12), end=(0.5, 0.5, 1.0), parallax=0.06))
+shot(at(13, "sacked"), lambda d: photo("collins/santiago_interior.jpg", d, start=(0.5, 0.5, 1.12), end=(0.5, 0.5, 1.0), parallax=0.06))
 shot(at(13, "According"), lambda d: photo("loc/cordoba_mihrab.jpg", d, start=(0.5, 0.6, 1.0), end=(0.5, 0.45, 1.15), parallax=0.10,
                                           overlays=[lower("The Great Mosque of Córdoba", "Where the bells of Santiago hung as lamps", 0.6)]))
 r14 = lambda x: x - ps(14)
@@ -240,11 +244,11 @@ shot(ps(14), lambda d: MapShot(d, cam=[(0, -4.2, 39.0, 13.0), (d, -4.0, 38.2, 11
                                labels=[(r14(at(14, "Navas")), -3.57, 38.28, "Las Navas de Tolosa", "1212"),
                                        (r14(at(14, "Córdoba")), -4.78, 37.88, "Córdoba", "1236"),
                                        (r14(at(14, "fallen")), -5.98, 37.39, "Seville", "1248")]))
-shot(at(14, "chronicles"), lambda d: Still("collins/cordoba_campanario.jpg", d, start=(0.5, 0.6, 1.0), end=(0.5, 0.4, 1.12), parallax=0.08,
+shot(at(14, "chronicles"), lambda d: photo("collins/cordoba_campanario.jpg", d, start=(0.5, 0.6, 1.0), end=(0.5, 0.4, 1.12), parallax=0.08,
                                            overlays=[lower("Córdoba", "The bell tower of the cathedral, once the minaret  ·  W. W. Collins (1909)", 0.6)]))
 shot(ps(15) - 0.2, lambda d: photo("loc/seville_cathedral.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.45, 1.15), parallax=0.10,
                                    overlays=[lower("Seville Cathedral", "Built on the site of the Almohad mosque", 0.8)]))
-shot(ps(16) - 0.2, lambda d: Still("loc/toledo_santa_maria_la_blanca.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.5, 1.15), parallax=0.10, tone="sepia",
+shot(ps(16) - 0.2, lambda d: Still("loc/toledo_santa_maria_la_blanca.jpg", d, crop=KEYSTONE, start=(0.5, 0.5, 1.0), end=(0.5, 0.5, 1.15), parallax=0.10, tone="sepia",
                                    overlays=[lower("Toledo", "Santa María la Blanca, built in the Mudéjar style", 0.8)]))
 shot(at(16, "door"), lambda d: Still("lanepoole/toledo_puerta_del_sol.jpg", d, end=(0.5, 0.45, 1.12), tone="sepia", parallax=0.06))
 shot(at(16, "Where", 1), lambda d: Still("lanepoole/toledo.jpg", d, start=(0.5, 0.5, 1.12), end=(0.5, 0.5, 1.0), tone="sepia", parallax=0.06,
@@ -261,20 +265,20 @@ shot(at(17, "surrendered") - 0.3, lambda d: photo("loc/alhambra_puerta_del_vino.
 shot(at(17, "After"), lambda d: Still("lanepoole/sword_of_boabdil.jpg", d, end=(0.5, 0.5, 1.15), tone="sepia",
                                       overlays=[lower("Sword of Boabdil", "Last Nasrid ruler of Granada", 0.5)]))
 shot(ps(18) - 0.2, lambda d: Still("lanepoole/plan_of_granada.jpg", d, start=(0.5, 0.5, 1.0), end=(0.45, 0.45, 1.25), tone="sepia",
-                                   overlays=[lower("The Capitulations of Granada", "November 1491", 0.8)]))
+                                   overlays=[lower("Granada", "The Capitulations were agreed in November 1491", 0.8)]))
 shot(at(18, "No"), lambda d: photo("loc/alhambra_mesquita.jpg", d, start=(0.5, 0.55, 1.0), end=(0.5, 0.45, 1.12), parallax=0.10))
-shot(ps(19) - 0.2, lambda d: photo("loc/granada_cathedral_from_gate_of_justice.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.5, 1.15), parallax=0.08, tone="sepia",
-                                   overlays=[lower("Granada", "Seat of Archbishop Hernando de Talavera", 0.8)]))
+shot(ps(19) - 0.2, lambda d: photo("loc/granada_cathedral_from_gate_of_justice.jpg", d, crop=KEYSTONE, start=(0.5, 0.5, 1.0), end=(0.5, 0.5, 1.15), parallax=0.08, tone="sepia",
+                                   overlays=[lower("Granada", "First archbishop: Hernando de Talavera, 1493–1507", 0.8)]))
 shot(at(19, "Muslims"), lambda d: Footage(os.path.join(ASSETS, "video/alcazaba_views.avi"), d, src_start=4.0, speed=0.8, zoom=(1.0, 1.06),
                                           overlays=[lower("The Albaicín", "The old Muslim quarter of Granada", 0.6)]))
 shot(ps(20) - 0.2, lambda d: Still("lanepoole/alpuxarras.jpg", d, end=(0.5, 0.45, 1.15), tone="sepia", parallax=0.08,
                                    overlays=[lower("The Alpujarras", "Mountains south of Granada", at(20, "Alpujarras") - ps(20))]))
-shot(ps(21) - 0.2, lambda d: Still("collins/granada_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
+shot(ps(21) - 0.2, lambda d: photo("collins/granada_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
                                    overlays=[lower("Castile, 1502", "Baptism, or departure", 0.8)]))
 shot(at(21, "From"), lambda d: photo("loc/granada_tombs_catholic_monarchs.jpg", d, start=(0.5, 0.55, 1.0), end=(0.5, 0.5, 1.18), parallax=0.10,
                                      overlays=[lower("Ferdinand and Isabella", "Their tombs in the Royal Chapel, Granada", 0.6)]))
-shot(ps(22) - 0.2, lambda d: Still("collins/cordoba_mesquita_interior.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.5, 1.0), parallax=0.10))
-shot(at(22, "In"), lambda d: Still("collins/toledo_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(ps(22) - 0.2, lambda d: photo("collins/cordoba_mesquita_interior.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.5, 1.0), parallax=0.10))
+shot(at(22, "In"), lambda d: photo("collins/toledo_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
 
 # PART THREE AND A HALF: THE HARDER CASE
 DEC_DL = "docs/alhambra_decree_deadline.jpg"
@@ -286,7 +290,7 @@ def decree_shot(d):
                     highlights=[(r(at(23, "Every")), r(at(23, "July", end=True)), bx)],
                     overlays=[lower("The Alhambra Decree, 31 March 1492", "Printed in Amador de los Ríos (1876) from the manuscript in the Biblioteca Nacional", 0.6, r(at(23, "Every")) - 0.5)])
 shot(ps(23) - 0.2, decree_shot)
-shot(ps(24) - 0.2, lambda d: Still("loc/toledo_santa_maria_la_blanca.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.5, 1.0), parallax=0.10, tone="sepia",
+shot(ps(24) - 0.2, lambda d: Still("loc/toledo_santa_maria_la_blanca.jpg", d, crop=KEYSTONE, start=(0.5, 0.5, 1.15), end=(0.5, 0.5, 1.0), parallax=0.10, tone="sepia",
                                    overlays=[lower("Toledo", "Santa María la Blanca, built as a synagogue", 0.8)]))
 DEC_RS = "docs/alhambra_decree_reason.jpg"
 def reason_shot(d):
@@ -297,28 +301,28 @@ def reason_shot(d):
                     highlights=[(r(ps(26)), r(pe(26)), bx)],
                     panel=(r(ps(26)), [w for w, _ in words_of(26)], [r(tt) for _, tt in words_of(26)], "Alhambra Decree  ·  English translation"))
 shot(ps(25) - 0.2, reason_shot)
-shot(ps(27) - 0.2, lambda d: Still("collins/toledo_cathedral.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08))
+shot(ps(27) - 0.2, lambda d: photo("collins/toledo_cathedral.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08))
 shot(at(27, "How"), lambda d: Still("lanepoole/toledo.jpg", d, end=(0.55, 0.5, 1.12), tone="sepia", parallax=0.06))
 r28 = lambda x: x - ps(28)
 shot(ps(28) - 0.2, lambda d: MapShot(d, cam=[(0, -1.0, 45.5, 22.0)],
                                      labels=[(r28(at(28, "England")), -1.5, 49.6, "England", "expelled its Jews, 1290"),
                                              (r28(at(28, "France")), 2.35, 46.8, "France", "1306 and 1394"),
                                              (r28(at(28, "Spain's")), -3.7, 40.4, "Castile and Aragon", "1492: baptism, or exile")]))
-shot(ps(29) - 0.2, lambda d: Still("collins/segovia_aqueduct.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
+shot(ps(29) - 0.2, lambda d: photo("collins/segovia_aqueduct.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
                                    overlays=[lower("Segovia", "Home of Abraham Seneor, chief rabbi of Castile", 0.8)]))
-shot(at(29, "Others"), lambda d: Still("collins/malaga_harbour.jpg", d, start=(0.5, 0.5, 1.0), end=(0.55, 0.5, 1.15), parallax=0.08))
+shot(at(29, "Others"), lambda d: photo("collins/malaga_harbour.jpg", d, start=(0.5, 0.5, 1.0), end=(0.55, 0.5, 1.15), parallax=0.08))
 shot(ps(30) - 0.2, lambda d: photo("loc/alhambra_palace_charles_v.jpg", d, end=(0.5, 0.5, 1.12), parallax=0.08))
 
 # PART FOUR: BEHIND CLOSED DOORS
-shot(ps(31), lambda d: Still("collins/granada_cathedral.jpg", d, start=(0.5, 0.5, 1.2), end=(0.5, 0.45, 1.0), parallax=0.08))
-shot(at(31, "Spanish"), lambda d: Still("collins/toledo_cathedral.jpg", d, end=(0.48, 0.45, 1.18), parallax=0.08,
+shot(ps(31), lambda d: photo("collins/granada_cathedral.jpg", d, start=(0.5, 0.5, 1.2), end=(0.5, 0.45, 1.0), parallax=0.08))
+shot(at(31, "Spanish"), lambda d: photo("collins/toledo_cathedral.jpg", d, end=(0.48, 0.45, 1.18), parallax=0.08,
                                         overlays=[lower("The Spanish Inquisition", "Founded 1478", 0.5)]))
 shot(ps(32) - 0.2, lambda d: Still("lanepoole/alhambra_window.jpg", d, end=(0.5, 0.48, 1.18), tone="sepia", parallax=0.08))
 shot(at(32, "They", 2), lambda d: Still("lanepoole/koran_case_escorial.jpg", d, end=(0.5, 0.5, 1.15), tone="sepia",
                                         overlays=[lower("Ancient Qur'an case", "Escorial Library", 0.6)]))
 shot(ps(33) - 0.2, lambda d: MapShot(d, cam=[(0, -2.5, 37.0, 9.0), (d, -1.8, 36.6, 7.0)],
                                      labels=[(0.6, -0.64, 35.70, "Oran", "1504"), (1.2, -3.6, 37.18, "Granada", None)]))
-shot(ps(34) - 0.2, lambda d: Still("collins/cordoba_mesquita_interior.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.5, 1.2), parallax=0.12))
+shot(ps(34) - 0.2, lambda d: photo("collins/cordoba_mesquita_interior.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.5, 1.2), parallax=0.12))
 
 # PART FIVE: THE ENEMY AT THE COAST
 r35 = lambda x: x - ps(35)
@@ -333,7 +337,7 @@ shot(ps(36) - 0.2, lambda d: photo("loc/algiers_harbor_admiralty.jpg", d, start=
 shot(at(36, "1568"), lambda d: Still("lanepoole/alpuxarras.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), tone="sepia", parallax=0.10,
                                      overlays=[lower("The Alpujarras", "Rebellion of 1568–71", 0.5)]))
 shot(at(36, "Both"), lambda d: Still("lanepoole/sierra_nevada.jpg", d, start=(0.45, 0.5, 1.12), end=(0.55, 0.5, 1.0), tone="sepia", parallax=0.08))
-shot(ps(37) - 0.2, lambda d: Still("collins/avila.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
+shot(ps(37) - 0.2, lambda d: photo("loc/segovia_bridge.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
                                    overlays=[lower("Castile", "Where the Moriscos of Granada were resettled", 0.8)]))
 shot(at(37, "In"), lambda d: photo("loc/valencia_plaza_de_la_seo.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
                                    overlays=[lower("Valencia", "1605", 0.5)]))
@@ -354,15 +358,15 @@ shot(at(38, "Over"), lambda d: MapShot(d, cam=[(0, 0.0, 38.4, 13.0), (d, 0.3, 38
                                                (2.6, -0.64, 35.70, "Oran", None), (3.8, 3.06, 36.76, "Algiers", None)]))
 
 # PART SIX: THREE WAYS TO SEE 1609
-shot(ps(39) - 0.2, lambda d: Still("collins/valencia_cathedral_door.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(ps(39) - 0.2, lambda d: photo("collins/valencia_cathedral_door.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
 shot(ps(40) - 0.2, lambda d: Still("lanepoole/alpuxarras.jpg", d, start=(0.5, 0.5, 1.0), end=(0.55, 0.45, 1.15), tone="sepia", parallax=0.08))
 shot(at(40, "Ottoman"), lambda d: Still("loc/lepanto_1571_print.jpg", d, start=(0.5, 0.5, 1.0), end=(0.55, 0.5, 1.25), tone="sepia",
                                         overlays=[lower("Lepanto, 1571", "Engraving published the year of the battle  ·  Library of Congress", 0.5)]))
-shot(ps(41) - 0.2, lambda d: Still("collins/cordoba_mesquita_interior.jpg", d, start=(0.45, 0.5, 1.15), end=(0.55, 0.5, 1.0), parallax=0.10))
+shot(ps(41) - 0.2, lambda d: photo("collins/cordoba_mesquita_interior.jpg", d, start=(0.45, 0.5, 1.15), end=(0.55, 0.5, 1.0), parallax=0.10))
 shot(at(41, "Historians"), lambda d: photo("loc/valencia_miguelete.jpg", d, end=(0.5, 0.4, 1.12), parallax=0.08))
 shot(ps(42) - 0.2, lambda d: photo("loc/valencia_plaza_de_la_seo.jpg", d, start=(0.5, 0.5, 1.12), end=(0.5, 0.45, 1.0), parallax=0.08,
                                    overlays=[lower("Valencia Cathedral", "Seat of Archbishop Juan de Ribera", at(42, "Ribera") - ps(42))]))
-shot(at(42, "teaching") - 1.0, lambda d: Still("collins/valencia_cathedral_door.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08))
+shot(at(42, "teaching") - 1.0, lambda d: photo("collins/valencia_cathedral_door.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08))
 BAN_C, BAN_E = "docs/valencia_bando_1609_clauses.jpg", "docs/valencia_bando_1609_exemptions.jpg"
 def bando_clauses(d):
     six = doc_lines("losmoriscosespa02borouoft", 205, BAN_C, "que en cada lugar de cien casas", "muestras huuieren dado de Christianos")
@@ -382,23 +386,24 @@ def bando_exempt(d):
                     highlights=[(r(ps(44)), r(pe(44)), bx)],
                     panel=(r(ps(44)), [w for w, _ in words_of(44)], [r(tt) for _, tt in words_of(44)], "Clauses 11 and 12  ·  English translation"))
 shot(ps(44) - 0.4, bando_exempt)
-shot(ps(45) - 0.2, lambda d: Still("collins/avila.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08))
-shot(at(45, "town") - 0.4, lambda d: Still("collins/segovia_aqueduct.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.45, 1.0), parallax=0.08,
-                                   overlays=[lower("Villarrubia de los Ojos", "La Mancha, where neighbors defended the Moriscos", 0.6)]))
+shot(ps(45) - 0.2, lambda d: photo("loc/valencia_miguelete.jpg", d, start=(0.5, 0.45, 1.12), end=(0.5, 0.5, 1.0), parallax=0.08))
+shot(at(45, "town") - 0.4, lambda d: MapShot(d, cam=[(0, -3.7, 39.6, 9.0), (d, -3.6, 39.3, 6.0)],
+                                             labels=[(0.5, -3.60, 39.22, "Villarrubia de los Ojos", "La Mancha"), (1.2, -3.70, 40.42, "Madrid", None),
+                                                     (1.4, -4.02, 39.86, "Toledo", None)]))
 shot(ps(46) - 0.2, lambda d: photo("loc/alhambra_sierra_nevada.jpg", d, start=(0.5, 0.45, 1.12), end=(0.5, 0.42, 1.0), parallax=0.10))
 shot(at(46, "If"), lambda d: photo("loc/granada_tombs_catholic_monarchs.jpg", d, start=(0.5, 0.5, 1.18), end=(0.5, 0.55, 1.0), parallax=0.10))
 
 # PART SEVEN: THE ONES WHO STAYED
-shot(ps(47), lambda d: Still("collins/burgos_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(ps(47), lambda d: photo("collins/burgos_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
 shot(ps(48) - 0.2, lambda d: photo("loc/burgos_escalera_dorada.jpg", d, start=(0.5, 0.6, 1.0), end=(0.5, 0.45, 1.15), parallax=0.10,
                                    overlays=[lower("Burgos Cathedral", "See of Pablo de Santa María and Alonso de Cartagena", 0.8)]))
-shot(at(48, "His"), lambda d: Still("collins/burgos_capilla_mayor.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
-shot(ps(49) - 0.2, lambda d: Still("loc/columbus_departure_print.jpg", d, end=(0.5, 0.5, 1.15), tone="sepia", parallax=0.06,
+shot(at(48, "His"), lambda d: photo("collins/burgos_capilla_mayor.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(ps(49) - 0.2, lambda d: Still("loc/columbus_departure_print.jpg", d, crop=(0.075, 0.08, 0.925, 0.775), end=(0.5, 0.5, 1.15), tone="sepia", parallax=0.06,
                                    overlays=[lower("Columbus departs, 1492", "Print, c. 1850  ·  Library of Congress", 0.8)]))
-shot(ps(50) - 0.2, lambda d: Still("collins/granada_cathedral.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08,
+shot(ps(50) - 0.2, lambda d: photo("collins/granada_cathedral.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08,
                                    overlays=[lower("Hernando de Talavera", "Archbishop of Granada, 1493–1507", 0.8)]))
 shot(ps(51) - 0.2, lambda d: Still("lanepoole/generalife_garden.jpg", d, end=(0.5, 0.45, 1.15), tone="sepia", parallax=0.08))
-shot(at(51, "He"), lambda d: Still("collins/granada_generalife.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
+shot(at(51, "He"), lambda d: photo("collins/granada_generalife.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08,
                                    overlays=[lower("The Generalife, Granada", "Held for generations by the Granada Venegas", 0.6)]))
 shot(ps(52) - 0.2, lambda d: Still("lanepoole/shield_king_of_granada.jpg", d, end=(0.5, 0.5, 1.15), tone="sepia",
                                    overlays=[lower("Shield of a king of Granada", "The Nasrid dynasty", 0.8)]))
@@ -407,31 +412,31 @@ shot(at(52, "In"), lambda d: photo("loc/escorial_monastery.jpg", d, end=(0.5, 0.
 shot(ps(53) - 0.2, lambda d: Still("lanepoole/koran_case_escorial.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.5, 1.0), tone="sepia",
                                    overlays=[lower("The Escorial library", "Its Arabic manuscripts were catalogued by Alonso del Castillo", 0.8)]))
 shot(at(53, "Miguel"), lambda d: photo("loc/escorial_plaza.jpg", d, end=(0.5, 0.45, 1.12), parallax=0.08))
-shot(ps(54) - 0.2, lambda d: photo("loc/avila_walls_1904.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.10, tone="sepia",
+shot(ps(54) - 0.2, lambda d: photo("loc/avila_view_1860.jpg", d, crop=AVILA_1860, end=(0.5, 0.45, 1.15), parallax=0.10, tone="sepia",
                                    overlays=[lower("Ávila", "Home of Saint Teresa", at(54, "Ávila") - ps(54))]))
-shot(at(54, "John"), lambda d: Still("collins/avila.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08))
-shot(ps(55) - 0.2, lambda d: Still("collins/saragossa_la_seo.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(at(54, "John"), lambda d: photo("collins/avila.jpg", d, start=(0.5, 0.45, 1.15), end=(0.5, 0.5, 1.0), parallax=0.08))
+shot(ps(55) - 0.2, lambda d: photo("collins/saragossa_la_seo.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
 
 # PART EIGHT: PURITY OF BLOOD
-shot(ps(56), lambda d: Still("loc/toledo_cathedral_close.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08, tone="sepia",
+shot(ps(56), lambda d: Still("loc/toledo_cathedral_close.jpg", d, crop=KEYSTONE, end=(0.5, 0.45, 1.15), parallax=0.08, tone="sepia",
                              overlays=[lower("Toledo, 1449", "Where the first purity of blood statute was drawn up", 0.8)]))
-shot(ps(57) - 0.2, lambda d: Still("collins/toledo_cathedral.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.45, 1.0), parallax=0.08))
-shot(ps(58) - 0.2, lambda d: Still("loc/toledo_cathedral_gate_of_lions.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08, tone="sepia",
+shot(ps(57) - 0.2, lambda d: photo("collins/toledo_cathedral.jpg", d, start=(0.5, 0.5, 1.15), end=(0.5, 0.45, 1.0), parallax=0.08))
+shot(ps(58) - 0.2, lambda d: Still("loc/toledo_cathedral_gate_of_lions.jpg", d, crop=KEYSTONE, end=(0.5, 0.45, 1.15), parallax=0.08, tone="sepia",
                                    overlays=[lower("Toledo Cathedral", "Its chapter adopted a statute in 1547", at(58, "1547") - ps(58) - 0.5)]))
-shot(ps(59) - 0.2, lambda d: Still("collins/leon_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
-shot(ps(60) - 0.2, lambda d: Still("collins/santiago_south_door.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
-shot(ps(61) - 0.2, lambda d: photo("loc/avila_view_1860.jpg", d, end=(0.5, 0.5, 1.15), parallax=0.10, tone="sepia"))
+shot(ps(59) - 0.2, lambda d: photo("collins/leon_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(ps(60) - 0.2, lambda d: photo("collins/santiago_south_door.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(ps(61) - 0.2, lambda d: photo("collins/avila.jpg", d, start=(0.45, 0.5, 1.12), end=(0.55, 0.5, 1.0), parallax=0.08))
 
 # CLOSING
-shot(ps(62), lambda d: Still("collins/oviedo_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
+shot(ps(62), lambda d: photo("collins/oviedo_cathedral.jpg", d, end=(0.5, 0.45, 1.15), parallax=0.08))
 shot(ps(63) - 0.2, lambda d: photo("loc/cordoba_bridge.jpg", d, end=(0.5, 0.45, 1.12), parallax=0.08))
-shot(at(63, "Many"), lambda d: Still("collins/seville_giralda_collins.jpg", d, end=(0.5, 0.4, 1.12), parallax=0.08))
+shot(at(63, "Many"), lambda d: photo("collins/seville_giralda_collins.jpg", d, end=(0.5, 0.4, 1.12), parallax=0.08))
 r64 = lambda x: x - ps(64)
 shot(ps(64) - 0.2, lambda d: MapShot(d, cam=[(0, -6.5, 40.5, 12.5), (d, -6.6, 40.4, 11.5)],
                                      arrows=[(r64(at(64, "carried")), r64(at(64, "997", end=True)) + 0.4, [(-8.54, 42.88), (-6.9, 40.7), (-4.78, 37.88)], RED),
                                              (r64(at(64, "carried", 2)), r64(at(64, "1236", end=True)) + 0.4, [(-4.78, 37.88), (-6.3, 40.2), (-8.54, 42.88)], GREEN)],
                                      labels=[(0.3, -8.54, 42.88, "Santiago", None), (0.6, -4.78, 37.88, "Córdoba", None)]))
-shot(at(64, "To"), lambda d: Still("collins/santiago_cathedral.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.42, 1.18), parallax=0.10,
+shot(at(64, "To"), lambda d: photo("collins/santiago_cathedral.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.42, 1.18), parallax=0.10,
                                    overlays=[Fade(d - 3.5, d - 0.3, out=True)]))
 
 
