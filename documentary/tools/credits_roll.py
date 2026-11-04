@@ -2,7 +2,7 @@
 
 roll_shot(assets_json, film_title, slug) -> (duration, factory) for a roll that scrolls from blank to blank.
 """
-import json, os, textwrap
+import json, os, re, textwrap
 from PIL import Image, ImageDraw
 import cv2
 from render import W, H, FPS, ASSETS, GOLD, IVORY, F_SERIF, F_SERIF_I, F_SANS_B, font, Still
@@ -10,9 +10,20 @@ from render import W, H, FPS, ASSETS, GOLD, IVORY, F_SERIF, F_SERIF_I, F_SANS_B,
 GEN = os.path.join(ASSETS, "generated")
 
 
-def _entries(assets_json):
+def used_assets(edl_path):
+    """Asset files an edit actually puts on screen, read from its source, so unused spares are not credited."""
+    src = open(edl_path).read()
+    files = set(re.findall(r'"((?:loc|cma|dore|docs|collins|lanepoole|engraving|video)/[^"]+)"', src))
+    files |= {f"dore/{m}.jpg" for m in re.findall(r'dore\("([a-z0-9_]+)"', src)}
+    files |= {f"video/{m}" for m in re.findall(r'VID\("([^"]+)"', src)}
+    return files
+
+
+def _entries(assets_json, used=None):
     out = []
     for e in json.load(open(assets_json)):
+        if used is not None and e["file"] not in used:
+            continue
         side = os.path.join(ASSETS, e["file"] + ".json")
         e = {**(json.load(open(side)) if os.path.exists(side) else {}), **e}
         if e.get("credit") is False or not e.get("title"):
@@ -35,13 +46,13 @@ def txt(v):
     return (", ".join(map(str, v)) if isinstance(v, list) else str(v or "")).strip()
 
 
-def make_roll(assets_json, film_title, path):
+def make_roll(assets_json, film_title, path, used=None):
     f_title, f_head, f_item, f_sub = font(F_SANS_B, 44), font(F_SANS_B, 28), font(F_SERIF, 28), font(F_SERIF_I, 24)
     lines = [("title", film_title.upper()), ("gap", 30),
              ("item", "Narration: a synthetic voice (Chatterbox TTS) conditioned on a synthetic Kokoro voice. No real person's voice is used."),
              ("item", "Music: an original score composed and synthesized for this film."),
              ("item", "Maps drawn from Natural Earth (public domain)."), ("gap", 40)]
-    for head, items in _entries(assets_json):
+    for head, items in _entries(assets_json, used):
         lines += [("head", head.upper()), ("gap", 14)]
         for e in items:
             lines.append(("item", txt(e["title"])))
@@ -89,10 +100,10 @@ class Roll(Still):
             yield fr
 
 
-def roll_shot(assets_json, film_title, slug, speed=150.0):
+def roll_shot(assets_json, film_title, slug, speed=150.0, used=None):
     """Returns (duration, factory): the roll scrolls at `speed` px/s from blank to blank."""
     path = os.path.join(GEN, f"credits_{slug}.png")
-    w, h = make_roll(assets_json, film_title, path)
+    w, h = make_roll(assets_json, film_title, path, used)
     dur = (h - H) / speed
     a, b = (H / 2) / h, 1 - (H / 2) / h
     return dur, lambda d: Roll(os.path.relpath(path, ASSETS), d, start=(0.5, a, 1.0), end=(0.5, b, 1.0))

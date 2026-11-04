@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from render import W, H, DOC, ASSETS, Still, Footage, Text, Fade, Black, Document, render
 from maps import MapShot
 from textnorm import norm
-from credits_roll import roll_shot
+from credits_roll import roll_shot, used_assets
 import ia_find
 
 XF = 0.6
@@ -35,7 +35,7 @@ for i, p in enumerate(man):
     p["start"] = t
     t += p["dur"] + (QUOTE_PAD if p["quote"] else 0) + GAP
 END = t - GAP + TAIL  # end of the narrated film; the credits roll follows
-ROLL, ROLL_SHOT = roll_shot(os.path.join(DOC, "assets_reconquista.json"), "The Reconquista", "reconquista")
+ROLL, ROLL_SHOT = roll_shot(os.path.join(DOC, "assets_reconquista.json"), "The Reconquista", "reconquista", used=used_assets(__file__))
 TOTAL = END + ROLL
 P = {p["n"]: p for p in man}
 T_TITLE = P[3]["title_at"]
