@@ -39,6 +39,17 @@ venv/bin/python tools/mix.py out/reconquista/video.mp4 out/reconquista/narration
   out/reconquista/timeline.json out/reconquista/reconquista.mp4 out/reconquista/reconquista.srt
 ```
 
+After a container reset, run `git lfs pull && tools/persist.sh --restore` before narrating, so the voiced paragraphs
+already saved are reused instead of re-voiced.
+
+## Where everything is kept
+
+Everything lives on GitHub, in `d2wpr45qy7-dev/morning-briefing`, branch `documentary`. Code, scripts and asset lists
+are ordinary git files. The narration takes and the finished films (`media/films/`: mp4, srt, credits) are stored
+with Git LFS under `media/`. `tools/persist.sh --loop 1800` copies new media there and pushes every half hour while
+work runs. To put a copy on a local drive: `git clone -b documentary https://github.com/d2wpr45qy7-dev/morning-briefing`
+into a folder on the drive (Git LFS installed), or download a single film from the GitHub web page.
+
 Narration and rendering take hours on 4 CPU cores; run them detached (`setsid nohup`) because the tool runner
 stops background jobs after two hours. Narration is cached per paragraph by text, so script edits only re-voice
 what changed. Never use `pkill -f` with a pattern that also appears in your own command line.
