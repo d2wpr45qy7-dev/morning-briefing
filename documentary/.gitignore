@@ -1,0 +1,12 @@
+venv*/
+models/
+assets/
+cache/
+out/
+narration*/
+voice/*.wav
+qa/
+*.mp4
+*.wav
+*.m4a
+*.log
