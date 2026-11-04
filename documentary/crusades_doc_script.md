@@ -22,7 +22,7 @@ That church would become the goal of every crusader.
 
 By the eleventh century the last great Christian power in the East was the Byzantine Empire. In 1071, at Manzikert in eastern Anatolia, the Seljuk Turks destroyed its army and took the emperor Romanos Diogenes prisoner.
 
-Within a decade the Turks had overrun most of Anatolia, and made Nicaea, where the Nicene Creed had been drawn up, their capital, barely a hundred miles from Constantinople.
+Within a decade the Turks had overrun most of Anatolia, and made Nicaea, where the Nicene Creed had been drawn up, their capital, less than a hundred miles from Constantinople.
 
 The road to Jerusalem had grown dangerous. In 1065 a great company of German pilgrims, by some accounts seven thousand strong and led by Bishop Gunther of Bamberg, was attacked near Ramla and had to fight for days to survive.
 
@@ -36,7 +36,9 @@ In November 1095, in a field outside Clermont in France, Urban preached to a gre
 
 Christians had long asked whether a war could ever be just. Saint Augustine, writing six centuries before Clermont, answered that it could, under conditions: a just cause, such as defending the innocent or recovering what had been wrongly taken; a legitimate authority to declare it; and a right intention, to restore peace rather than to win plunder.
 
-The First Crusade was framed in those terms. Its cause was the defense of the Eastern Christians and the recovery of Christian lands. Its authority was the pope, answering the emperor's appeal. And it was preached as an armed pilgrimage. Crusaders took vows, sewed the cross onto their clothing, and were promised the remission of the penance due for their sins.
+The First Crusade was framed in those terms. Its cause was the defense of the Eastern Christians and the recovery of Christian lands. Its authority was the pope, answering the emperor's appeal. And it was preached as an armed pilgrimage. Crusaders took vows, sewed the cross onto their clothing, and were promised the remission of the penance due for their sins. The council at Clermont set it down in one of its canons.
+
+"Whoever, for devotion alone, and not to gain honor or money, sets out to free the Church of God at Jerusalem, that journey shall be counted in place of all penance."
 
 The old picture of crusaders as landless younger sons out for plunder has not survived the records. The historian Jonathan Riley-Smith found that going on crusade could cost a knight four or five times his annual income. Families mortgaged and sold land to pay for it, and most who survived came home poorer than they left.
 
@@ -56,7 +58,7 @@ There are three episodes that any honest account of the Crusades has to face.
 
 The first is the fall of Jerusalem. The crusaders killed a great many of the city's defenders and inhabitants. Later Muslim writers spoke of seventy thousand dead; modern historians, working from letters written at the time, put the toll in the thousands. It was a massacre.
 
-It was also the rule of war on both sides. A city that surrendered on terms was usually spared. A city that refused terms and was taken by storm was not. When Zengi took the crusader city of Edessa by storm in 1144, its people were slaughtered. When the Mamluk sultan Baybars stormed Antioch in 1268, he killed or enslaved its population, and wrote to the city's absent prince describing what he had done.
+It was also the rule of war on both sides. A city that surrendered on terms was usually spared. A city that refused terms and was taken by storm was not. When Zengi took the crusader city of Edessa by storm in 1144, thousands of its people were killed or enslaved. When the Mamluk sultan Baybars stormed Antioch in 1268, he killed or enslaved its population, and wrote to the city's absent prince describing what he had done.
 
 The second episode has no such explanation. In the spring of 1096, before the main armies left, bands led by men such as Count Emicho attacked the Jewish communities of the Rhineland, at Speyer, Worms and Mainz, and murdered thousands. The bishop of Speyer protected the Jews of his city and punished the attackers. The archbishop of Mainz sheltered Jews in his own palace until the mob broke in. Fifty years later, when a monk named Radulf preached violence against the Jews, Bernard of Clairvaux went to the Rhineland himself to stop him.
 
@@ -80,7 +82,7 @@ It is often said that the Islamic world has carried the memory of the Crusades a
 
 For medieval Muslim writers, these were wars against the Franks, one frontier struggle among many, and one they had won. Arabic had no common term for the Crusades until the nineteenth century, when one was adopted from European usage, and the first Arabic history of the Crusades appeared in 1899.
 
-In Damascus, the tomb of Saladin was neglected for centuries. It was restored in 1898, at the expense of a European: the German emperor Wilhelm the Second, who laid a wreath there during a state visit.
+In Damascus, the tomb of Saladin was neglected for centuries. Its restoration was paid for by a European: the German emperor Wilhelm the Second, who laid a wreath there during a state visit in 1898.
 
 The idea of the Crusades as a great historical crime against Islam took shape largely in the modern era, in European romantic writing and in twentieth-century anti-colonial politics.
 
