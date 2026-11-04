@@ -54,11 +54,15 @@ It was a demand, not an invitation. But it is worth setting beside the choice th
 
 ## PART THREE AND A HALF: THE HARDER CASE
 
-Three months after the fall of Granada, on the thirty-first of March, 1492, Ferdinand and Isabella signed the Alhambra Decree. Every Jew in their kingdoms was to accept baptism or leave by the end of July.
+Three months after the fall of Granada, on the thirty-first of March, 1492, Ferdinand and Isabella signed the Alhambra Decree. Every Jew in their kingdoms was to leave by the end of July. Those who accepted baptism could stay.
 
 The Jews of Spain had not been the conquerors of 711. Under the Almohads they had been persecuted alongside the Christians. The case for the Reconquista, the recovery of a conquered land, does not apply to them, and this film does not claim that it does.
 
-The decree gave its own reason. The Crown claimed that practicing Jews were drawing the conversos, Jews who had already been baptized, many of them during the violence and mass conversions of 1391, back into Jewish observance. That was the stated rationale. How much of it was true, and how much was suspicion, is still argued over.
+The decree gave its own reason, in its opening lines.
+
+"We were informed that in our kingdoms there are, and have been, some bad Christians who judaized from our Holy Catholic Faith, of which the communication of the Jews with the Christians was much to blame."
+
+The Crown's claim was that practicing Jews were drawing the conversos, Jews who had already been baptized, many of them during the violence and mass conversions of 1391, back into Jewish observance. How much of it was true, and how much was suspicion, is still argued over.
 
 Spain was not the first kingdom to expel its Jews. England did so in 1290, and France in 1306 and again in 1394, with no option to stay. Spain's decree left a door open: baptism, and with it the right to remain.
 
@@ -84,7 +88,7 @@ Some Moriscos aided them, as guides, informants and correspondents of the Ottoma
 
 After the rebellion, the Moriscos of Granada were deported and scattered across Castile. Suspicion did not fade. In 1605 the authorities claimed to have uncovered a Morisco plot in Valencia, backed by France.
 
-In April 1609 Philip the Third ordered the expulsion of the Moriscos. Over the next five years, roughly three hundred thousand people were removed from Spain.
+In 1609 Philip the Third ordered the expulsion of the Moriscos. The first proclamation was read in Valencia that September, and the royal letter it contained gave the king's reasons. The Moriscos, he wrote, had persisted in apostasy and treason, and through their ambassadors had sought the harm and disturbance of his kingdoms. Over the next five years, roughly three hundred thousand people were removed from Spain.
 
 ## PART SIX: THREE WAYS TO SEE 1609
 
@@ -96,7 +100,11 @@ The fair answer is that most Moriscos were not the heirs of the Arab and Berber 
 
 The second is the Church. As an institution, the Church did not condemn the expulsion. Juan de Ribera, the archbishop of Valencia, later canonized, was among its strongest advocates, and saw it as the culmination of the Reconquista. But the Church was not of one mind. Some clergy argued for patient instruction instead, the humanist Pedro de Valencia argued for integration, and the nobles and parliament of Valencia, who stood to lose their workers, appealed to the Crown to stop it, and were refused. The Church's own teaching cut against the decision. The same Church that insisted in 1449 that the baptized are one in Christ was now watching a king remove baptized Catholics from his realm on the suspicion that their baptism was a mask.
 
-And even in 1609, the path of conversion was not wholly closed. The decrees made exceptions, among them Morisca women married to Old Christians and their children, and Moriscos sought certificates from their parish priests attesting that they lived as Christians. The exceptions were applied unevenly, and many who qualified were expelled anyway. But where a community had truly become part of Christian Spain, the record shows that it could survive. In the town of Villarrubia de los Ojos, in La Mancha, Old Christian neighbors, parish priests and the local lord defended the Moriscos, and many who were expelled came back and stayed.
+And even in 1609, the path of conversion was not wholly closed. The Valencian proclamation itself set out exceptions. Children under four could stay if their parents agreed. Where the father was an Old Christian, his young children and their Morisca mother stayed. In each village, six households in every hundred were to remain, chosen from those who had given the most signs of being Christians. And two clauses spoke directly to faith.
+
+"Likewise, those who for a considerable time, such as two years, have lived among Christians without attending the assemblies of the aljamas. Likewise, those who receive the Most Holy Sacrament with the license of their prelates."
+
+In practice these exceptions were applied unevenly, and many who qualified were expelled anyway. But where a community had truly become part of Christian Spain, the record shows that it could survive. In the town of Villarrubia de los Ojos, in La Mancha, Old Christian neighbors, parish priests and the local lord defended the Moriscos, and many who were expelled came back and stayed.
 
 The third way is the simplest. The Reconquista was justified as a just war: a just cause, a legitimate authority, and the intention of recovering a land that had been taken. That cause was complete in 1492. The expulsion came a hundred and seventeen years later, when no war was being fought on Spanish soil, as a decision of a king about his own subjects. If 1609 went too far, it does not reach back and unwrite the recovery of Spain. Each must be judged on its own terms.
 
