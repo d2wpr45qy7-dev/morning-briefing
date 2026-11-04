@@ -10,3 +10,4 @@ qa/
 *.wav
 *.m4a
 *.log
+__pycache__/
