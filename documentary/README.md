@@ -39,6 +39,9 @@ venv/bin/python tools/mix.py out/reconquista/video.mp4 out/reconquista/narration
   out/reconquista/timeline.json out/reconquista/reconquista.mp4 out/reconquista/reconquista.srt
 ```
 
+The Crusades film is built the same way with `assets_crusades.json`, `crusades_doc_script.md`, `narration_crusades`
+and `tools/crusades_edl.py` (outputs in `out/crusades/`). Its maps use the `mediterranean` canvas in `tools/maps.py`.
+
 After a container reset, run `git lfs pull && tools/persist.sh --restore` before narrating, so the voiced paragraphs
 already saved are reused instead of re-voiced.
 
@@ -59,7 +62,8 @@ what changed. Never use `pkill -f` with a pattern that also appears in your own 
 - `reconquista_doc_script.md`: narration script; `## ` headings start chapters; paragraphs starting with `"` are
   quoted documents.
 - `assets_reconquista.json`: every source with kind, id, local file and credit; `tools/fetch.py` downloads them.
-- `tools/reconquista_edl.py`: the edit; every cut is anchored to a narration word with `at(paragraph, word)`.
+- `tools/reconquista_edl.py`, `tools/crusades_edl.py`: the edits; every cut is anchored to a narration word with
+  `at(paragraph, word)` (beware lower-case repeats: `at(n, "In")` also matches an earlier "in").
 - `tools/render.py`, `tools/maps.py`, `tools/music.py`, `tools/mix.py`: renderer, maps, score, mix and subtitles.
 - `tools/ia_find.py`: finds a phrase in an Internet Archive scan and returns its page and word boxes.
 
@@ -71,3 +75,9 @@ findings; Talavera's converso descent and his 1505-07 Inquisition case; Teresa's
 expulsions; Almanzor sparing the apostle's tomb; the purity-statute details (Silíceo 1547, Jesuits 1593, Olivares);
 the share of al-Andalus Muslim by about 1000; the 1605 plot. The quoted 754, 1492 and 1609 texts are transcribed
 from the scans shown on screen and translated by Claude.
+
+Crusades: the 1065 pilgrimage numbers; Riley-Smith's cost estimate; the Mainz and Speyer details of 1096; John Paul
+II's 2001 words in Athens; the Templar and Hospitaller executions after Hattin; the 2,700 at Acre; al-Hariri's 1899
+history; Wilhelm II's payment for the tomb restoration. The Bernold (MGH SS 5 p. 462), Clermont canon (Mansi XX) and
+Robert the Monk (RHC Occ. 3 p. 729) passages are transcribed from the scans shown on screen and translated by Claude;
+the Bernold highlight boxes were measured from the scan by hand (it has no OCR).

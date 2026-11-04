@@ -165,13 +165,15 @@ CITY = dict(Jerusalem=(35.23, 31.78), Bethlehem=(35.20, 31.70), Nazareth=(35.30,
             Cologne=(6.96, 50.94), Ostia=(12.29, 41.73))
 C = lambda name: CITY[name]
 ROMAN_600 = [(-10, 36), (-10, 44), (-1.8, 43.4), (-4.5, 48.7), (2, 51.2), (6, 51.2), (7.5, 49.5), (8.5, 47.6), (16, 48.3), (19, 45), (22.5, 44.2),
-             (28.5, 44.4), (29.5, 45.3), (41.5, 41.5), (44, 40), (44, 37.4), (38.5, 37.3), (40, 35), (38, 31), (35, 29.4), (34.2, 27), (33, 23),
-             (24.9, 23), (24.9, 29.5), (20, 30), (15, 31), (11, 32.5), (8, 33.5), (-1, 34.5), (-6, 34.5), (-10, 33)]
+             (28.5, 44.4), (29.5, 45.3), (41.5, 41.5), (44, 40), (44, 37.4), (38.5, 37.3), (40, 35), (38, 31), (35, 29.4), (33.8, 27.5),
+             (32.9, 24.0), (32.3, 23.0), (31.5, 23.0), (30.8, 24.5), (30.2, 27.5), (29.0, 29.5), (24.9, 29.8), (20, 29.6), (15, 30.3),
+             (10, 31.5), (5, 32.3), (0, 32.2), (-5, 30.5), (-10, 29.5)]
 ARABIA = [(34.9, 29.4), (37.0, 29.3), (46, 29), (46, 23), (38.5, 23), (36, 26.5)]
 SYRIA = [(34.2, 31.0), (34.9, 33.3), (35.8, 35.5), (35.9, 36.9), (38.5, 37.3), (42.5, 37.3), (46, 35.5), (46, 29), (37, 29.3), (34.9, 29.4)]
-EGYPT = [(24.9, 31.7), (29, 31.3), (32.3, 31.3), (34.3, 31.3), (34.9, 29.4), (34.2, 27), (33, 23), (24.9, 23)]
-MAGHREB = [(-6.5, 35.8), (-5.3, 35.95), (-1, 35.9), (3, 36.9), (9, 37.4), (11.2, 37.2), (11.2, 33.5), (15, 32.4), (20, 31), (24.9, 31.7),
-           (24.9, 23), (-10, 23), (-10, 29.5), (-9.8, 33)]
+EGYPT = [(24.9, 31.7), (29, 31.3), (32.3, 31.3), (34.3, 31.3), (34.9, 29.4), (33.8, 27.5), (32.9, 24.0), (32.3, 23.0), (31.5, 23.0),
+         (30.8, 24.5), (30.2, 27.5), (29.0, 29.5), (24.9, 29.8)]
+MAGHREB = [(-9.8, 33.0), (-6.5, 35.8), (-5.3, 35.95), (-1, 35.9), (3, 36.9), (9, 37.4), (11.2, 37.2), (11.2, 33.5), (15, 32.4), (20, 31),
+           (24.9, 31.7), (24.9, 29.8), (20, 29.6), (15, 30.3), (10, 31.5), (5, 32.3), (0, 32.2), (-5, 30.5), (-9.8, 29.5)]
 SICILY = [(12.3, 38.4), (15.7, 38.4), (15.7, 36.6), (12.3, 36.6)]
 ANATOLIA = [(26, 40.3), (26.5, 38), (27.5, 36.6), (30, 36.2), (32.5, 36.1), (36, 36.6), (36.2, 37), (38.5, 37.2), (42, 37.2), (44.5, 38.5),
             (44.5, 41), (41.5, 41.6), (36, 42.1), (31, 41.3), (29.5, 41.2), (29.1, 40.9)]
@@ -233,7 +235,7 @@ r3 = lambda x: x - ps(3)
 shot(ps(3), lambda d: MapShot(d, cam=[(0, 17.0, 37.5, 48.0), (r3(at(3, "Jerusalem")) - 0.3, 34.9, 32.2, 4.0), (d, 35.0, 32.25, 3.4)],
                               base_fill=([ROMAN_600], GREEN),
                               labels=[lab(r3(at(3, "Jerusalem")), "Jerusalem"), lab(r3(at(3, "Bethlehem")), "Bethlehem", text="Bethlehem"),
-                                      lab(r3(at(3, "Nazareth")), "Nazareth"), (1.0, 31.0, 44.0, "The Christian world", "about 600", r3(at(3, "Jerusalem")) - 1.0)]))
+                                      lab(r3(at(3, "Nazareth")), "Nazareth"), (1.0, 4.5, 40.6, "The Christian world", "about 600", r3(at(3, "Jerusalem")) - 1.0)]))
 shot(at(3, "Antioch"), lambda d: Still("loc/antioch_1881.jpg", d, crop=STEREO, end=(0.5, 0.48, 1.14), parallax=0.10, tone="sepia",
                                        overlays=[lower("Antioch", "Stereograph, 1881  ·  Library of Congress", 0.6)]))
 shot(at(3, "Alexandria"), lambda d: photo("loc/alexandria_pompeys_pillar.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.08,
@@ -335,7 +337,7 @@ shot(at(14, "right", 1) - 0.3, lambda d: Still("cma/jerusalem_reliquary_cross.jp
 shot(ps(15) - 0.2, lambda d: dore("departure", d, "LXIV", "The departure", 0.8))
 shot(at(15, "armed"), lambda d: dore("way_to_holy_city", d, "XXIII", "The way to the Holy City", 0.5))
 CANON_IMG = "docs/clermont_canon_mansi.jpg"
-CANON = doc_lines("sacrorumconcilio0020joan", 419, CANON_IMG, "Quicumque pro fola devotione", "omni poenitentia reputetur")
+CANON = [(1739, 4040, 2768, 4104), (1684, 4104, 2768, 4158), (1692, 4158, 2770, 4211), (1690, 4215, 2440, 4269)]  # measured from the scan
 r16 = lambda x: x - at(15, "council") + 0.3
 shot(at(15, "council") - 0.3, lambda d: Document(CANON_IMG, d,
     cam=doc_cam(CANON_IMG, CANON, r16(ps(16)), r16(pe(16)) + 0.9, width=1300),
@@ -361,9 +363,8 @@ shot(ps(19) - 0.2, lambda d: Still("loc/antioch_orontes_1881.jpg", d, crop=STERE
                                    overlays=[lower("Antioch and the Orontes plain", "Stereograph, 1881  ·  Library of Congress", 0.8)]))
 shot(at(19, "took"), lambda d: dore("antioch_ramparts", d, "XX", "Bohemond mounting the ramparts of Antioch, June 1098", 0.5))
 shot(at(19, "Starving"), lambda d: dore("famished", d, "XXVI", "Famished for water", 0.5))
-shot(ps(20) - 0.2, lambda d: dore("judea", d, "XXIV", "Crusaders in the mountains of Judea", 0.8))
-shot(at(20, "Jerusalem"), lambda d: photo("loc/jerusalem_from_scopus.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.10,
-                                          overlays=[lower("Jerusalem from Mount Scopus", "Photochrom, about 1890–1900", 0.5)]))
+shot(ps(20) - 0.2, lambda d: photo("loc/jerusalem_from_scopus.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.10,
+                                          overlays=[lower("Jerusalem from Mount Scopus", "Photochrom, about 1890–1900", 0.8)]))
 shot(at(20, "Before"), lambda d: photo("loc/jerusalem_damascus_gate.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.10,
                                        overlays=[lower("The walls of Jerusalem", "Rebuilt by Suleiman the Magnificent, 1537–41  ·  the Damascus Gate", 0.5)]))
 shot(at(20, "On"), lambda d: dore("godfrey_enters", d, "XXIX", "Godfrey enters Jerusalem, 15 July 1099", 0.5))
@@ -390,8 +391,6 @@ r25 = lambda x: x - at(25, "Rhineland")
 shot(at(25, "Rhineland"), lambda d: MapShot(d, cam=[(0, 8.6, 49.0, 7.0), (d, 8.4, 49.6, 4.2)],
                                             labels=[lab(r25(at(25, "Speyer")), "Speyer"), lab(r25(at(25, "Worms")), "Worms"),
                                                     lab(r25(at(25, "Mainz")), "Mainz"), lab(0.4, "Cologne")]))
-shot(at(25, "murdered"), lambda d: photo("loc/worms_dom.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.10,
-                                         overlays=[lower("Worms", "The cathedral  ·  photograph, about 1890", 0.5)]))
 shot(at(25, "bishop"), lambda d: photo("loc/speyer_dom.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.10,
                                        overlays=[lower("Speyer", "The cathedral, consecrated in 1061  ·  photograph, about 1890", 0.5)]))
 shot(at(25, "archbishop"), lambda d: photo("loc/mainz_dom.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.10,
@@ -414,7 +413,7 @@ shot(ps(27) - 0.2, lambda d: dore("prayers_for_the_dead", d, "LXXXVI", "Prayers 
 
 # PART SIX: SALADIN AND THE LONG DEFENSE
 r28 = lambda x: x - ps(28)
-shot(ps(28), lambda d: MapShot(d, cam=[(0, 36.8, 34.6, 9.5), (r28(at(28, "Edessa")), 37.4, 35.6, 9.0), (d, 36.0, 34.0, 8.0)],
+shot(ps(28), lambda d: MapShot(d, cam=[(0, 37.0, 34.6, 14.5), (r28(at(28, "Edessa")), 37.3, 34.9, 13.5), (d, 36.6, 34.3, 12.5)],
                                base_fill=(CRUSADER_STATES, GREEN),
                                sweeps=[(r28(at(28, "Edessa")), r28(at(28, "1144", end=True)) + 0.3, 38.4, 36.3, RED, [EDESSA_C])],
                                labels=[lab(0.8, "Edessa"), lab(1.2, "Antioch"), (1.6, 35.84, 34.44, "Tripoli", None), lab(2.0, "Jerusalem"),
@@ -456,7 +455,7 @@ shot(ps(34) - 0.2, lambda d: photo("loc/saladin_tomb_1898.jpg", d, end=(0.5, 0.4
 shot(at(34, "German"), lambda d: photo("loc/kaiser_jerusalem_1898_cortege.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.08, tone="sepia",
                                        overlays=[lower("Wilhelm II in Jerusalem, 1898", "The same journey took him to Damascus  ·  American Colony photograph", 0.5)]))
 shot(ps(35) - 0.2, lambda d: dore("richard_saladin", d, "XLIX", "Richard and Saladin at the Battle of Arsuf", 0.8))
-shot(at(35, "twentieth"), lambda d: Footage(VID("levy_1933.mp4"), d, src_start=154.0, zoom=(1.0, 1.05), sharpen=True,
+shot(at(35, "twentieth", prefix=True), lambda d: Footage(VID("levy_1933.mp4"), d, src_start=154.0, zoom=(1.0, 1.05), sharpen=True,
                                             overlays=[lower("Bethlehem, 1933", "Under the British Mandate  ·  amateur film", 0.5)]))
 
 # EPILOGUE: LEPANTO AND VIENNA
@@ -478,10 +477,11 @@ shot(at(37, "Its"), lambda d: Still("cma/barbarigo_veronese.jpg", d, start=(0.5,
                                     overlays=[lower("Agostino Barbarigo, killed at Lepanto", "Second in command of the Venetian fleet  ·  Paolo Veronese  ·  Cleveland Museum of Art", 0.5)]))
 shot(at(37, "asked"), lambda d: Still("cma/madonna_of_the_rosary.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.42, 1.18), parallax=0.04, tone="sepia",
                                       overlays=[lower("Madonna of the Rosary", "Print, 17th century  ·  Cleveland Museum of Art", 0.5)]))
-shot(ps(38) - 0.2, lambda d: Still("loc/vienna_1683_print.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.55, 1.25), parallax=0.04, tone="sepia",
+VIENNA_PRINT = (0.07, 0.02, 0.98, 0.98)  # trims the strip of book text beside the plate
+shot(ps(38) - 0.2, lambda d: Still("loc/vienna_1683_print.jpg", d, crop=VIENNA_PRINT, start=(0.5, 0.5, 1.0), end=(0.5, 0.55, 1.25), parallax=0.04, tone="sepia",
                                    overlays=[lower("The siege and relief of Vienna, 1683", "Engraving, Hamburg, 1685  ·  Library of Congress", 0.8)]))
-shot(at(38, "Jan"), lambda d: Still("loc/sobieski_portrait.jpg", d, start=(0.5, 0.4, 1.0), end=(0.5, 0.38, 1.15), parallax=0.05, tone="sepia",
-                                    overlays=[lower("John III Sobieski", "King of Poland  ·  Library of Congress", 0.5)]))
+shot(at(38, "Jan"), lambda d: Still("loc/vienna_1683_print.jpg", d, crop=VIENNA_PRINT, start=(0.484, 0.80, 1.35), end=(0.484, 0.84, 1.75), parallax=0.0, tone="sepia",
+                                    overlays=[lower("John III Sobieski, \u201cKing of Poland\u201d", "Detail of the same engraving, 1685", 0.5)]))
 shot(at(38, "hills"), lambda d: photo("loc/vienna_kahlenberg.jpg", d, end=(0.5, 0.45, 1.14), parallax=0.10,
                                       overlays=[lower("The Kahlenberg above Vienna", "Where the relief army formed  ·  photochrom, about 1890", 0.5)]))
 shot(at(38, "To"), lambda d: Still("cma/tughra_mehmed_iv.jpg", d, start=(0.5, 0.5, 1.0), end=(0.5, 0.48, 1.15), parallax=0.04,
