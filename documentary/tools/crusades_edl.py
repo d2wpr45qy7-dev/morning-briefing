@@ -317,7 +317,17 @@ shot(at(13, "Urban"), lambda d: photo("loc/clermont_notre_dame_du_port.jpg", d, 
                                       overlays=[lower("Notre-Dame-du-Port, Clermont", "Romanesque church of the eleventh and twelfth centuries", 0.5)]))
 shot(at(13, "He"), lambda d: dore("peter_the_hermit", d, "IV", "Preaching the crusade", 0.5))
 shot(at(13, "called"), lambda d: dore("benediction", d, "LVII", "Benediction", 0.5))
-ROBERT_IMG = "docs/robert_monk_clermont_p729.jpg"
+def fit_page(name, max_w=3000):
+    """Document pages wider than the renderer's 4000 px limit get a smaller copy, so boxes and camera share one scale."""
+    from PIL import Image
+    small = name.replace(".jpg", f"_{max_w}.jpg")
+    if not os.path.exists(os.path.join(ASSETS, small)):
+        im = Image.open(os.path.join(ASSETS, name)).convert("RGB")
+        im.resize((max_w, round(im.height * max_w / im.width)), Image.LANCZOS).save(os.path.join(ASSETS, small), quality=92)
+    return small
+
+
+ROBERT_IMG = fit_page("docs/robert_monk_clermont_p729.jpg")
 ROBERT = doc_lines("RecueilDesHistoriensDesCroisadesOccidentaux3", 804, ROBERT_IMG, "Deus vult Deus vult", "Deus vult Deus vult")
 ROBERT_CTX = doc_lines("RecueilDesHistoriensDesCroisadesOccidentaux3", 804, ROBERT_IMG, "Haec8 et id genus", "Deus vult Deus vult")
 r13 = lambda x: x - at(13, "According") + 0.3
