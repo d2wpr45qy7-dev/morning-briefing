@@ -37,6 +37,7 @@ venv/bin/python tools/music.py "$(jq .total out/reconquista/cues.json)" <(jq .cu
 venv/bin/python tools/reconquista_edl.py                               # renders out/reconquista/video.mp4
 venv/bin/python tools/mix.py out/reconquista/video.mp4 out/reconquista/narration.wav out/reconquista/score.wav \
   out/reconquista/timeline.json out/reconquista/reconquista.mp4 out/reconquista/reconquista.srt
+# or all of the steps after transcription in one go: tools/finish.sh reconquista && tools/deliver.sh reconquista
 ```
 
 The Crusades film is built the same way with `assets_crusades.json`, `crusades_doc_script.md`, `narration_crusades`
@@ -44,6 +45,12 @@ and `tools/crusades_edl.py` (outputs in `out/crusades/`). Its maps use the `medi
 
 After a container reset, run `git lfs pull && tools/persist.sh --restore` before narrating, so the voiced paragraphs
 already saved are reused instead of re-voiced.
+
+## Finished films
+
+Both films are finished and stored with Git LFS on this branch: `media/films/reconquista.mp4` (30.6 min, 1080p,
+1.7 GB) and `media/films/crusades.mp4` (17.4 min, 1080p, 1.1 GB), each with an `.srt` subtitle file and a
+`_credits.md` source list. `tools/share.sh` makes 720p copies under the Claude app's 400 MiB transfer limit.
 
 ## Where everything is kept
 
