@@ -10,6 +10,7 @@ echo "score done $(date -u +%H:%M)"
 venv/bin/python tools/${F}_edl.py
 echo "video done $(date -u +%H:%M)"
 venv/bin/python tools/mix.py $O/video.mp4 $O/narration.wav $O/score.wav $O/timeline.json $O/$F.mp4 $O/$F.srt
+ffprobe -v error -show_entries format=duration -of csv=p=0 $O/$F.mp4 > /dev/null && rm -f $O/video.mp4  # the master carries the same video stream
 venv/bin/python -c "
 import json, sys; sys.path.insert(0, 'tools')
 from fetch import credits_md
