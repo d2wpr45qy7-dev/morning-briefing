@@ -23,10 +23,11 @@ sync_once() {
     [ -f "$d/manifest.json" ] && cp -u "$d/manifest.json" "media/$d/"
   done
   for film in reconquista crusades; do
-    for ext in mp4 srt; do
-      f="out/$film/$film.$ext"
-      [ -f "$f" ] && mkdir -p "media/films" && cp -u "$f" "media/films/"
-    done
+    # the delivery encode (tools/deliver.sh), never the multi-gigabyte render master: LFS caps files at 2 GB
+    f="out/$film/${film}_1080p.mp4"
+    [ -f "$f" ] && mkdir -p "media/films" && cp -u "$f" "media/films/$film.mp4"
+    f="out/$film/$film.srt"
+    [ -f "$f" ] && mkdir -p "media/films" && cp -u "$f" "media/films/"
     [ -f "out/$film/credits.md" ] && cp -u "out/$film/credits.md" "media/films/${film}_credits.md"
   done
   git add media
