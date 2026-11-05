@@ -5,7 +5,8 @@ cues: {name: [t0, t1]} with names intro, title, conquest, lament, closing (any m
 """
 import json, sys
 import numpy as np
-from scipy.signal import butter, sosfilt, fftconvolve, lfilter
+from scipy.signal import butter, sosfilt, oaconvolve, lfilter
+from scipy.ndimage import uniform_filter1d
 import soundfile as sf
 
 SR = 48000
@@ -61,7 +62,7 @@ def reverb(x, seconds=3.2, mix=0.32, seed=1):
     for ch in range(2):
         ir = lowpass(rng.normal(0, 1, n) * np.exp(-t * 6.5 / seconds), 5000); ir[:int(0.02 * SR)] = 0
         ir /= np.sqrt((ir ** 2).sum())
-        out.append((1 - mix) * x + mix * fftconvolve(x, ir)[:len(x)] * 1.4)
+        out.append((1 - mix) * x + mix * oaconvolve(x, ir.astype(np.float32))[:len(x)] * 1.4)  # overlap-add: fast and lean on long scores
     return np.stack(out, 1).astype(np.float32)
 
 
@@ -89,7 +90,7 @@ def score(total, cues, seed=7):
             if name.startswith(prefix):
                 w[int(a * SR):int(b * SR)] = 1
         k = int(fade * SR)
-        return np.convolve(w, np.ones(k) / k, mode="same").astype(np.float32)
+        return uniform_filter1d(w, size=k, mode="constant")  # running mean, O(n); a direct convolution never finishes on a full film
 
     for prefix, every in (("intro", 8.0), ("lament", 6.0), ("closing", 8.0)):
         for name, (a, b) in cues.items():
